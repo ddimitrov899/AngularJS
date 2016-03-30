@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Page</title>
+</head>
+<body ng-controller="studentController">
+<div ng-repeat="std in student">
+    <p>Student Name: {{std.name}}</p>
+    <img ng-src="{{std.photo}}" alt="image">
+    <p>Student Grade: {{std.grade}}</p>
+    <p>Student School: {{std.school}}</p>
+    <p>Student Teacher: {{std.teacher}}</p>
+</div>
+</body>
+<script src="lib/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/studentController.js"></script>
+</html>
