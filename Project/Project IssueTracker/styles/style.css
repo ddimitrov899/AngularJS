@@ -1,0 +1,23 @@
+header, footer{
+    text-align: center;
+}
+
+footer p {
+    margin-top: 1.5%;
+    color: #5cb85c;
+    margin-bottom: 0;
+}
+.navbar.navbar-inverse{
+    margin: 0;
+}
+.panel-title{
+    text-align: center;
+}
+
+.panel.panel-success, .panel.panel-warning{
+    margin: 16%;
+}
+
+div .align-center{
+    margin-left: 40%;
+}
