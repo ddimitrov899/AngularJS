@@ -1,5 +1,5 @@
 <!--login page-->
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" name="loginForm">
 
     <div class="panel panel-success">
         <div class="panel-heading">
@@ -10,7 +10,7 @@
                 <label class="col-sm-1 col-sm-offset-3 control-label"><span
                         class="glyphicon glyphicon-user"></span></label>
                 <div class="col-sm-5">
-                    <input type="text" placeholder="Username" class="form-control"/>
+                    <input type="text" ng-model="loginUser.username" required="required" placeholder="Username" class="form-control"/>
                 </div>
             </div>
 
@@ -18,15 +18,15 @@
                 <label class="col-sm-1 col-sm-offset-3 control-label"><span
                         class="glyphicon glyphicon-lock"></span></label>
                 <div class="col-sm-5">
-                    <input type="password" placeholder="Username" class="form-control"/>
+                    <input type="password" ng-model="loginUser.password" required="required" placeholder="Username" class="form-control"/>
                 </div>
             </div>
 
             <br/>
             <div class="align-center">
-                <input type="submit" class="btn btn-default" value="Login"/>
+                <input type="submit" ng-disabled="loginForm.$invalid" ng-click="login(loginUser)" class="btn btn-default" value="Login"/>
                 &nbsp;or&nbsp;
-                <input type="submit" class="btn btn-danger" value="Register"/>
+                <a href="#/register"><input type="submit" class="btn btn-danger" value="Register"/></a>
             </div>
         </div>
     </div>

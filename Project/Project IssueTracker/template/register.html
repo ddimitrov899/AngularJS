@@ -1,6 +1,6 @@
 <!--register page-->
 <!--TODO: add adar form in register liable-->
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" name="registerForm">
     <div class="panel panel-warning">
         <div class="panel-heading">
             <h3 class="panel-title">Register</h3>
@@ -13,7 +13,7 @@
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
                                 class="glyphicon glyphicon-user"></span></label>
                         <div class="col-sm-5">
-                            <input type="text" placeholder="Username" class="form-control"/>
+                            <input type="text" ng-model="registerUser.username" required="required" placeholder="Username" class="form-control"/>
                         </div>
                     </div>
 
@@ -21,7 +21,8 @@
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
                                 class="glyphicon glyphicon-lock"></span></label>
                         <div class="col-sm-5">
-                            <input type="password" placeholder="Password" class="form-control"/>
+                            <input type="password" ng-model="registerUser.password" minlength="6" maxlength="100" pattern=".{6,}" required="required" placeholder="Password" class="form-control"/>
+
                         </div>
                     </div>
 
@@ -29,7 +30,7 @@
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
                                 class="glyphicon glyphicon-envelope"></span></label>
                         <div class="col-sm-5">
-                            <input type="text" placeholder="Email" class="form-control"/>
+                            <input type="email" ng-model="registerUser.email" required="required" placeholder="Email" class="form-control"/>
                         </div>
                     </div>
                 </div>
@@ -39,7 +40,7 @@
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
                                 class="glyphicon glyphicon-phone"></span></label>
                         <div class="col-sm-5">
-                            <input type="text" placeholder="Phone Number" class="form-control"/>
+                            <input type="tel" ng-model="registerUser.phoneNumber" required="required" placeholder="Phone Number" class="form-control"/>
                         </div>
                     </div>
 
@@ -47,7 +48,7 @@
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
                                 class="glyphicon glyphicon-lock"></span></label>
                         <div class="col-sm-5">
-                            <input type="password" placeholder="Confirm Password" class="form-control"/>
+                            <input type="password" ng-model="registerUser.confirmPassword" ng-pattern="/^{{registerUser.password}}$/" required="required" placeholder="Confirm Password" class="form-control"/>
                         </div>
                     </div>
 
@@ -55,9 +56,9 @@
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
                                 class="glyphicon glyphicon-sunglasses"></span></label>
                         <div class="col-sm-5">
-                            <input type="radio" name="reg-gender" value="1">Male
-                            <input type="radio" name="reg-gender" value="2">Female
-                            <input type="radio" name="reg-gender" value="0">Other
+                            <input type="radio" ng-model="registerUser.gender" name="reg-gender" value="1">Male
+                            <input type="radio" ng-model="registerUser.gender" name="reg-gender" value="2">Female
+                            <input type="radio" ng-model="registerUser.gender" name="reg-gender" value="0">Other
                         </div>
                     </div>
 
@@ -66,7 +67,7 @@
 
             <br/>
             <div class="align-center">
-                <input type="submit" class="btn btn-default" value="Register"/>
+                <input type="submit"  ng-click="register(registerUser)" class="btn btn-default" value="Register"/>
                 &nbsp;or&nbsp;
                 <a href="#/login"><input type="submit" class="btn btn-danger" value="Login"/></a>
             </div>
