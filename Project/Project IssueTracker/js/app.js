@@ -2,6 +2,8 @@
 
 var app = angular.module('issueTracerApp', ['ngRoute']);
 
+app.constant('BASE_URL', 'http://softuni-social-network.azurewebsites.net/api/');
+
 app.config(['$routeProvider',function ($routeProvider) {
     $routeProvider.when('/',  {
         templateUrl: 'template/home-page.html',
@@ -22,3 +24,4 @@ app.config(['$routeProvider',function ($routeProvider) {
         redirectTo: '/'
     });
 }]);
+
