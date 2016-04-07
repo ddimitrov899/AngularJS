@@ -3,7 +3,7 @@
 <form class="form-horizontal" role="form" name="registerForm">
     <div class="panel panel-warning">
         <div class="panel-heading">
-            <h3 class="panel-title">Register</h3>
+            <h3 class="panel-title">{{pageTitle}}</h3>
         </div>
         <div class="panel-body">
 
@@ -17,38 +17,39 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" ng-controller= "ValidatorController">
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
                                 class="glyphicon glyphicon-lock"></span></label>
                         <div class="col-sm-5">
-                            <input type="password" ng-model="registerUser.password" minlength="6" maxlength="100" pattern=".{6,}" required="required" placeholder="Password" class="form-control"/>
+                            <input type="password" ng-model="registerUser.password" ng-pattern="passwordPattern"  required="required" placeholder="Password" class="form-control"/>
 
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" ng-controller= "ValidatorController">
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
                                 class="glyphicon glyphicon-envelope"></span></label>
                         <div class="col-sm-5">
-                            <input type="email" ng-model="registerUser.email" required="required" placeholder="Email" class="form-control"/>
+                            <input type="email" ng-model="registerUser.email" required="required" placeholder="Email" ng-pattern="emailPattern" class="form-control"/>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
 
-                    <div class="form-group">
+                    <div class="form-group" ng-controller="ValidatorController">
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
                                 class="glyphicon glyphicon-phone"></span></label>
-                        <div class="col-sm-5">
-                            <input type="tel" ng-model="registerUser.phoneNumber" required="required" placeholder="Phone Number" class="form-control"/>
+                        <div class="col-sm-2"><input type="text" class="form-control" readonly="readonly" value="+359"></div>
+                        <div class="col-sm-3">
+                             <input type="tel" ng-model="registerUser.phoneNumber" required="required" placeholder="Phone Number" ng-minlength="9" ng-pattern="mobilePattern" class="form-control"/>
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" ng-controller= "ValidatorController">
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
                                 class="glyphicon glyphicon-lock"></span></label>
                         <div class="col-sm-5">
-                            <input type="password" ng-model="registerUser.confirmPassword" ng-pattern="/^{{registerUser.password}}$/" required="required" placeholder="Confirm Password" class="form-control"/>
+                            <input type="password" ng-model="registerUser.confirmPassword"  required="required" placeholder="Confirm Password" ng-pattern="confirmPasswordPattern" class="form-control"/>
                         </div>
                     </div>
 
@@ -67,7 +68,7 @@
 
             <br/>
             <div class="align-center">
-                <input type="submit"  ng-click="register(registerUser)" class="btn btn-default" value="Register"/>
+                <input type="submit" ng-click="register(registerUser)" class="btn btn-default" value="Register"/>
                 &nbsp;or&nbsp;
                 <a href="#/login"><input type="submit" class="btn btn-danger" value="Login"/></a>
             </div>

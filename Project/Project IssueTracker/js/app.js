@@ -12,12 +12,17 @@ app.config(['$routeProvider',function ($routeProvider) {
 
     $routeProvider.when('/login',  {
         templateUrl: 'template/login.html',
-        controller: 'HomeController'
+        controller: 'LoginController'
     });
 
     $routeProvider.when('/register',  {
         templateUrl: 'template/register.html',
-        controller: 'HomeController'
+        controller: 'RegisterController'
+    });
+
+    $routeProvider.when('/dashboard',  {
+        templateUrl: 'template/user/dashboard.html',
+        controller: 'UserIssueBoardController'
     });
 
     $routeProvider.otherwise({

@@ -1,3 +1,3 @@
-app.controller('LoginController', ['$scope',function ($scope) {
-    
+app.controller('LoginController', ['$scope', function ($scope) {
+    $scope.pageTitle = 'Login';
 }]);
