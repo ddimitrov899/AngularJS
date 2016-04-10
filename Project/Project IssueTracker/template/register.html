@@ -9,11 +9,11 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" >
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
-                                class="glyphicon glyphicon-user"></span></label>
+                                class="glyphicon glyphicon-envelope"></span></label>
                         <div class="col-sm-5">
-                            <input type="text" ng-model="registerUser.username" required="required" placeholder="Username" class="form-control"/>
+                            <input type="email" ng-model="registerUser.email" required="required" placeholder="Email" class="form-control"/>
                         </div>
                     </div>
 
@@ -26,24 +26,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group" ng-controller= "ValidatorController">
-                        <label class="col-sm-1 col-sm-offset-3 control-label"><span
-                                class="glyphicon glyphicon-envelope"></span></label>
-                        <div class="col-sm-5">
-                            <input type="email" ng-model="registerUser.email" required="required" placeholder="Email" ng-pattern="emailPattern" class="form-control"/>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-md-6">
 
-                    <div class="form-group" ng-controller="ValidatorController">
-                        <label class="col-sm-1 col-sm-offset-3 control-label"><span
-                                class="glyphicon glyphicon-phone"></span></label>
-                        <div class="col-sm-2"><input type="text" class="form-control" readonly="readonly" value="+359"></div>
-                        <div class="col-sm-3">
-                             <input type="tel" ng-model="registerUser.phoneNumber" required="required" placeholder="Phone Number" ng-minlength="9" ng-pattern="mobilePattern" class="form-control"/>
-                        </div>
-                    </div>
 
                     <div class="form-group" ng-controller= "ValidatorController">
                         <label class="col-sm-1 col-sm-offset-3 control-label"><span
@@ -53,15 +38,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-1 col-sm-offset-3 control-label"><span
-                                class="glyphicon glyphicon-sunglasses"></span></label>
-                        <div class="col-sm-5">
-                            <input type="radio" ng-model="registerUser.gender" name="reg-gender" value="1">Male
-                            <input type="radio" ng-model="registerUser.gender" name="reg-gender" value="2">Female
-                            <input type="radio" ng-model="registerUser.gender" name="reg-gender" value="0">Other
-                        </div>
-                    </div>
+
 
                 </div>
             </div>

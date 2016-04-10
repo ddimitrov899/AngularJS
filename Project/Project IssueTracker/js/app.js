@@ -1,26 +1,26 @@
 "use strict";
 
-var app = angular.module('issueTracerApp', ['ngRoute']);
+var app = angular.module('issueTracerApp', ['ngRoute', 'ngResource', 'LocalStorageModule']);
 
-app.constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/api/');
+app.constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/');
 
-app.config(['$routeProvider',function ($routeProvider) {
-    $routeProvider.when('/',  {
+app.config(['$routeProvider', 'localStorageServiceProvider', function ($routeProvider, localStorageServiceProvider) {
+    $routeProvider.when('/', {
         templateUrl: 'template/home-page.html',
         controller: 'HomeController'
     });
 
-    $routeProvider.when('/login',  {
+    $routeProvider.when('/login', {
         templateUrl: 'template/login.html',
         controller: 'LoginController'
     });
 
-    $routeProvider.when('/register',  {
+    $routeProvider.when('/register', {
         templateUrl: 'template/register.html',
         controller: 'RegisterController'
     });
 
-    $routeProvider.when('/dashboard',  {
+    $routeProvider.when('/dashboard', {
         templateUrl: 'template/user/dashboard.html',
         controller: 'UserIssueBoardController'
     });
@@ -28,5 +28,8 @@ app.config(['$routeProvider',function ($routeProvider) {
     $routeProvider.otherwise({
         redirectTo: '/'
     });
+
+    localStorageServiceProvider.setStorageType('localStorage');
+    localStorageServiceProvider.setPrefix('issueTrackerApp');
 }]);
 

@@ -2,7 +2,9 @@ app.factory('userIssueData', ['$resource', 'BASE_URL', function ($resource, BASE
 
 
     function getIssues() {
-        return $resource(BASE_URL + 'projects/');
+        var progects = $resource(BASE_URL + 'projects');
+        console.log(progects);
+        return progects;
     }
 
     return {
