@@ -1,11 +1,9 @@
-app.factory('userData', ['$resource', 'BASE_URL', 'authentication', function ($resource, BASE_URL, authentication) {
+app.factory('userData', ['$resource', '$http', 'BASE_URL', 'authentication', function ($resource, $http, BASE_URL, authentication) {
 
 
     function registerUser(user) {
-        console.log(user);
          return $resource(BASE_URL + 'api/Account/Register').save(user).$promise.then(function (data) {
-             console.log(data);
-             authentication.saveUserStorage(angular.toJson(data));
+             loginUser(data);
          }, function (error) {
              console.error(error);
          });
@@ -13,15 +11,21 @@ app.factory('userData', ['$resource', 'BASE_URL', 'authentication', function ($r
     }
 
     function loginUser(user) {
-        $resource(BASE_URL + 'api/Token').save(user).$promise.then(function (data) {
-            console.log(data);
+        user.grant_type = 'password';
+        $http.post(BASE_URL + 'api/Token', 'grant_type=' + user.grant_type + '&username=' + user.email + '&password=' + user.password,
+            {headers: { 'Content-Type': 'application/x-www-form-urlencoded' }}).then(function (data) {
+            authentication.saveUserStorage(angular.toJson(data));
+            authentication.isLogin();
         });
-        // authentication.saveUserStorage(token);
+    }
+
+    function usersMeIsAdmin() {
+        // $http.get(BASE_URL + 'users/me', )
     }
 
     function logoutUser() {
-        // $resource(BASE_URL + 'users/logout');
-        // authentication.clearUserStorage();
+        $resource(BASE_URL + 'api/Account/logout');
+        authentication.clearUserStorage();
     }
 
     return {

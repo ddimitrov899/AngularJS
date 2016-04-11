@@ -20,16 +20,16 @@ app.config(['$routeProvider', 'localStorageServiceProvider', function ($routePro
         controller: 'RegisterController'
     });
 
-    $routeProvider.when('/dashboard', {
-        templateUrl: 'template/user/dashboard.html',
-        controller: 'UserIssueBoardController'
+    $routeProvider.when('/logout', {
+        templateUrl: 'template/home-page.html',
+        controller: 'LogoutController'
     });
 
     $routeProvider.otherwise({
         redirectTo: '/'
     });
 
-    localStorageServiceProvider.setStorageType('localStorage');
-    localStorageServiceProvider.setPrefix('issueTrackerApp');
+    // localStorageServiceProvider.setStorageType('localStorage');
+    // localStorageServiceProvider.setPrefix('issueTrackerApp');
 }]);
 

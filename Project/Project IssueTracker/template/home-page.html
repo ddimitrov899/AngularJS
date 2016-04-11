@@ -1,11 +1,4 @@
-<div class="panel panel-success">
-    <div class="panel-heading">
-        <h2 class="panel-title">{{pageTitle}}</h2>
-    </div>
-    <div class="panel-body">
-        <div class="align-center">
-            <a href="#/login" class="btn btn-success">Login </a>
-            <a href="#/register" class="btn btn-danger">Register</a>
-        </div>
-    </div>
+<div>
+    <div home-login-page-directive ng-if="!isLogin" />
+    <div dashboard-directive ng-if="isLogin" />
 </div>
