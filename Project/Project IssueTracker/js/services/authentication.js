@@ -13,7 +13,7 @@ app.factory('authentication',['$location', function ($location) {
         return token.data;
     }
 
-    function getHeaders() {
+    function getUserHeadersStorage() {
         var headers = {};
 
         var userData = getUserData();
@@ -41,7 +41,7 @@ app.factory('authentication',['$location', function ($location) {
     return {
         saveUserStorage: saveUserData,
         getUser: getUserData,
-        getHeader: getHeaders,
+        getUserHeaderStorage: getUserHeadersStorage,
         clearUserStorage: clearUserStorage,
         isAdmin: isAdmin,
         isLogin: isLogin

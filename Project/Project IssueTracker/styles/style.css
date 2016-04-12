@@ -1,9 +1,9 @@
-header, footer{
+header, footer, h1{
     text-align: center;
 }
 
 footer p {
-    margin-top: 1.5%;
+    margin-top: 1%;
     color: #5cb85c;
     margin-bottom: 0;
 }
@@ -18,9 +18,7 @@ footer p {
     margin: 12%;
 }
 
-div .align-center{
-    margin-left: 45%;
-}
+
 
 .ng-invalid.ng-dirty{
     border: 1px solid red;

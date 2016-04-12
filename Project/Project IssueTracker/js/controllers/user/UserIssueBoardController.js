@@ -1,7 +1,10 @@
 app.controller('UserIssueBoardController', ['$scope', 'userIssueData', function ($scope, userIssueData) {
     $scope.pageTitle = 'Dashboard';
 
-    $scope.issues = function () {
-        userIssueData.getIssue();
-    };
+    
+    userIssueData.getIssue().then(function (data) {
+        console.log(data);
+        $scope.issues = data;
+    });
+    
 }]);

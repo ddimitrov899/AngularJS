@@ -8,13 +8,11 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-<div nav-login-header-directive ng-if="!isLogin" />
-<div home-login-page-directive ng-if="!isLogin" />
 <div id="wrapper">
-    <div ng-view />
+    <div>
+        <div ng-view/>
+    </div>
 </div>
-
-
 <footer>
     <div class="navbar navbar-inverse">
         <p>&copy; 2014 by Software University Foundation, No Rights Reserved</p>
@@ -32,6 +30,7 @@
 <script src="js/app.js"></script>
 
 <script src="js/controllers/HomeController.js"></script>
+<script src="js/controllers/navHome/NavHeaderDirectiveController.js"></script>
 <script src="js/controllers/LoginController.js"></script>
 <script src="js/controllers/RegisterController.js"></script>
 <script src="js/controllers/LogoutController.js"></script>
@@ -39,6 +38,8 @@
 <script src="js/controllers/user/UserIssueBoardController.js"></script>
 
 <script src="js/directives/login/home-login-page.js"></script>
+<script src="js/directives/nav/header-dashboard.js"></script>
+<script src="js/directives/nav/navigation-login.js"></script>
 <script src="js/directives/dashboard.js"></script>
 
 <script src="js/services/data/userData.js"></script>
