@@ -1,4 +1,4 @@
-app.factory('userData', ['$resource', '$http', 'BASE_URL', 'authentication', function ($resource, $http, BASE_URL, authentication) {
+app.factory('userData', ['$resource', '$window', '$http', 'BASE_URL', 'authentication', function ($resource, $window, $http, BASE_URL, authentication) {
 
 
     function registerUser(user) {
@@ -27,12 +27,28 @@ app.factory('userData', ['$resource', '$http', 'BASE_URL', 'authentication', fun
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
         };
-        
+
         return $http(request).then(function (data) {
             authentication.saveUserStorage(angular.toJson(data));
             authentication.isLogin();
             var header = authentication.getUserHeaderStorage();
             userMeIsAdmin(header);
+            getAllUsers(header);
+        });
+    }
+
+    function changePassword(user) {
+        var header = authentication.getUserHeaderStorage(),
+            request = {
+                method: 'POST',
+                url: BASE_URL + 'api/Account/ChangePassword',
+                data:user,
+                headers: header
+            };
+
+        return $http(request).then(function (data) {
+            authentication.saveUserStorage(angular.toJson(data));
+            authentication.isLogin();
         });
     }
 
@@ -47,21 +63,48 @@ app.factory('userData', ['$resource', '$http', 'BASE_URL', 'authentication', fun
         })
     }
 
+    function getAllUsers(header) {
+        var request = {
+            method: 'GET',
+            url: BASE_URL + 'users/',
+            headers: header
+        };
+        $http(request).then(function (success) {
+            console.log(success);
+        })
+    }
+
+    function makeAdmin(header) {
+        var request = {
+            method: 'PUT',
+            url: BASE_URL + 'users/',
+            headers: header
+        };
+        $http(request).then(function (success) {
+            console.log(success);
+        })
+    }
+
     function logoutUser() {
         var request = {
             method: 'POST',
             url: BASE_URL + 'api/Account/logout',
-            headers: authentication.getHeaders()
+            headers: authentication.getUserHeaderStorage()
         };
+
         $http(request).then(function (success) {
             authentication.clearUserStorage();
-        });
 
+        });
     }
 
     return {
         register: registerUser,
         login: loginUser,
-        logout: logoutUser
+        changePassword: changePassword,
+        logout: logoutUser,
+        getAllUser: getAllUsers,
+        makeAdmin: makeAdmin,
+        userMeIsAdmin: userMeIsAdmin
     }
 }]);

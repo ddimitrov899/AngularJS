@@ -12,7 +12,6 @@ app.factory('authenticationProject', ['$http', 'BASE_URL', 'authentication',
 
             var result = $http(resource);
             return result;
-
         }
 
         return {

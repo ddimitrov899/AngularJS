@@ -18,7 +18,9 @@ footer p {
     margin: 12%;
 }
 
-
+form .align-center {
+    margin-left: 43%;
+}
 
 .ng-invalid.ng-dirty{
     border: 1px solid red;

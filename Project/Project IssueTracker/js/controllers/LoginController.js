@@ -2,7 +2,10 @@ app.controller('LoginController', ['$scope', 'userData', function ($scope, userD
     $scope.pageTitle = 'Login';
     $scope.login = function (user) {
         userData.login(user).then(function (success) {
-            $scope.visible = false;
+            $scope.isVisible = false;
+            //notyPopUp.success('login')
+        }, function (error) {
+            //notyPopUp.error(error);
         });
     };
 

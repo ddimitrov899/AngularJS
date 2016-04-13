@@ -15,9 +15,15 @@ app.config(['$routeProvider', 'localStorageServiceProvider', function ($routePro
         controller: 'LoginController'
     });
 
+
     $routeProvider.when('/register', {
         templateUrl: 'template/register.html',
         controller: 'RegisterController'
+    });
+
+    $routeProvider.when('/change/password', {
+        templateUrl: 'template/user/change-password.html',
+        controller: 'ChangePasswordController'
     });
 
     $routeProvider.when('/logout', {

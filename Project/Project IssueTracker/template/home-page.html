@@ -10,7 +10,8 @@
 </header>
 <div class="row">
     <div class="col-lg-12">
-        <div home-login-page-directive ng-if="!isLogin"/>
+        <div home-login-page-directive ng-if="!isLogin && !isVisible"/>
         <div dashboard-directive ng-if="isLogin"/>
+        <div login-page-directive ng-show="!isLogin && !isVisible"/>
     </div>
 </div>
