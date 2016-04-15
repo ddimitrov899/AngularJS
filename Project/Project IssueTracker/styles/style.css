@@ -1,4 +1,4 @@
-header, footer, h1{
+header, footer, h1 {
     text-align: center;
 }
 
@@ -7,14 +7,16 @@ footer p {
     color: #5cb85c;
     margin-bottom: 0;
 }
-.navbar.navbar-inverse{
+
+.navbar.navbar-inverse {
     margin: 0;
 }
-.panel-title{
+
+.panel-title {
     text-align: center;
 }
 
-.panel.panel-success, .panel.panel-warning{
+.panel.panel-success, .panel.panel-warning {
     margin: 12%;
 }
 
@@ -22,6 +24,10 @@ form .align-center {
     margin-left: 43%;
 }
 
-.ng-invalid.ng-dirty{
+.loadingImage {
+    margin: 0 auto;
+}
+
+.ng-invalid.ng-dirty {
     border: 1px solid red;
 }

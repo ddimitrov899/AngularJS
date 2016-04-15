@@ -1,14 +1,10 @@
-app.controller('HomeController', ['$scope', '$location', 'authentication', function ($scope, $location, authentication) {
-   $scope.pageTitle = "Home Page";
-    $scope.isVisible = false;
-    $scope.loginButton = function () {
-        $location.path('/login');
-        $scope.isVisible = true;
-    };
-    $scope.registerButton = function () {
-        $location.path('/register');
-    };
+app.controller('HomeController',
+    ['$scope', '$location', 'authentication',
+        function ($scope, $location, authentication) {
+            $scope.pageTitle = "Home Page";
+            $scope.pathButton = function (path) {
+                $location.path(path);
+            };
+            $scope.isLogin = authentication.isLogin();
 
-   $scope.isLogin = authentication.isLogin();
-
-}]);
+        }]);
