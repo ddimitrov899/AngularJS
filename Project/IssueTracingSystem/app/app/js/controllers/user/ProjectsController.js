@@ -20,13 +20,14 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
                 currentId = id;
 
                 issueService.getIssuesById(id).then(function (data) {
-                    result.push(data.data);
-                     $scope.issues = result;
                     console.log(data);
                     $scope.readyDownload = true;
+
+                    result.push(data.data);
+                    $scope.issues = result;
                     result = [];
                 })
             }
-        }
+        };
 
     }]);

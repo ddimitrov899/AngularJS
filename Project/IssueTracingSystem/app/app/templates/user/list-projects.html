@@ -15,6 +15,7 @@
                         <th>Description</th>
                         <th>Project</th>
                         <th>Due Date</th>
+                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -23,10 +24,10 @@
                         <td><p class="fixed-description">{{issue.Description}}</p></td>
                         <td><p>{{issue.Project.Name}}</p></td>
                         <td><p class="due-date">{{issue.DueDate | date : 'dd-MM-yyyy'}}</p></td>
+                        <td><p>{{issue.Status.Name}}</p></td>
                     </tr>
 
                     </tbody>
-
                 </table>
             </div>
             <div class="col-md-2"></div>
