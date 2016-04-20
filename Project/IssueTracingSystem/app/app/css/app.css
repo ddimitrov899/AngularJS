@@ -1,0 +1,20 @@
+/* app css stylesheet */
+.panel-title, h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin: 0 15px;
+}
+
+.center-block {
+    margin-top: 130px;
+    width: 150px;
+    height:40px;
+}
+
+footer p {
+    margin-top: 15px;
+    text-align: center;
+    color: #f9f2f4;
+}
