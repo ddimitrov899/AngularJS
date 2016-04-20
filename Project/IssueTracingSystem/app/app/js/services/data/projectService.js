@@ -4,7 +4,7 @@ app.factory('projectService', ['$http', 'baseServiceUrl', 'authentication', func
         var header = authentication.getUserHeaderStorage();
         var request = {
             method: 'GET',
-            url: baseServiceUrl + 'projects/',
+            url: baseServiceUrl + 'projects',
             headers: header
         };
 

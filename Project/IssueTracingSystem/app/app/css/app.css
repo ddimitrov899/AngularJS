@@ -7,10 +7,30 @@
     margin: 0 15px;
 }
 
+table {
+    width: 600px;
+}
+
+.fixed-description {
+    width: 500px;
+}
+
+.due-date {
+    width: 100px;
+}
+
+.container {
+    margin: 0;
+}
+
 .center-block {
-    margin-top: 130px;
+
     width: 150px;
-    height:40px;
+    height: auto;
+}
+
+a {
+    margin-top: 20px;
 }
 
 footer p {

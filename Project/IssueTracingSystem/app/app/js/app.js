@@ -27,5 +27,10 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'ProfilePasswordController'
     });
 
+    $routeProvider.when('/projects', {
+        templateUrl: 'templates/user/list-projects.html',
+        controller: 'ProjectsController'
+    });
+
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

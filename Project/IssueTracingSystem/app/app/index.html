@@ -13,11 +13,9 @@
 <header>
     <div ng-include="'templates/partial/header.html'"></div>
 </header>
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8" ng-view="ngView"></div>
-    <div class="col-md-2"></div>
-</div>
+
+    <div  ng-view="ngView"></div>
+
 
 <footer>
     <nav class="navbar navbar-inverse">
@@ -37,6 +35,8 @@
 <script src="js/services/userService.js"></script>
 <script src="js/services/authentication.js"></script>
 <script src="js/services/notifyService.js"></script>
+<script src="js/services/data/projectService.js"></script>
+<script src="js/services/data/issueService.js"></script>
 
 <script src="js/controllers/AppController.js"></script>
 <script src="js/controllers/HomeController.js"></script>
@@ -44,6 +44,7 @@
 <script src="js/controllers/RegisterController.js"></script>
 <script src="js/controllers/user/DashboardController.js"></script>
 <script src="js/controllers/user/ProfilePasswordController.js"></script>
+<script src="js/controllers/user/ProjectsController.js"></script>
 
 <script src="../components/version/version.js"></script>
 <script src="../components/version/version-directive.js"></script>
