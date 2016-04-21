@@ -26,8 +26,8 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
             };
 
             return $http(request);
-                
-            
+
+
         }
 
         function logout() {
@@ -67,10 +67,11 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
                 url: baseServiceUrl + 'users/me',
                 headers: headerToken
             };
-
+            var isAdmin = false;
             $http(request).then(function (admin) {
-                return admin.data.isAdmin;
+                isAdmin = admin.data.isAdmin;
             });
+            return isAdmin;
 
         }
 
@@ -93,21 +94,30 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
         }
 
         function isLoggedIn() {
-            return localStorage['user'] != undefined;
+            var isLogged = localStorage['user'] != undefined;
+            return isLogged;
+        }
+
+        function setLocalStorageIsNormal(){
+            localStorage['isNormal'] = isLoggedIn() &&(!isAdmin()) && (!isLeadProject());
         }
 
         function isNormalUser() {
+            return localStorage['isNormal'];
+        }
+
+        function isLeadProject() {
             var currentUser = getCurrentUser();
-            var currentUserIsAdmin = userMeIsAdmin();
-            var user = (currentUser != undefined) && (!currentUserIsAdmin);
-            return user;
+            var isLead = false;
+            if(currentUser.userName == 'oracle@gmail.bg'){
+                isLead = true;
+            }
+            return isLead;
         }
 
         function isAdmin() {
-            var currentUser = getCurrentUser();
             var currentUserIsAdmin = userMeIsAdmin();
-            var admin = (currentUser != undefined) && (currentUserIsAdmin);
-            return admin;
+            return currentUserIsAdmin;
         }
 
         function getAuthHeaders() {
@@ -124,8 +134,9 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
             isAdmin: isAdmin,
             getAuthHeaders: getAuthHeaders,
             makeAdmin: makeAdmin,
-            changePassword: changePassword
-
+            changePassword: changePassword,
+            setLocalStorageIsNormal:setLocalStorageIsNormal,
+            isLead: isLeadProject
 
         }
     }]);

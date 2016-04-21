@@ -25,7 +25,7 @@ app.factory('authentication',
         }
 
         function clearUserStorage() {
-            localStorage.removeItem(key);
+            localStorage.clear();
         }
 
         return {
