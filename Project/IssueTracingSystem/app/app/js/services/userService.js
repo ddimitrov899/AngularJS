@@ -1,5 +1,4 @@
 'use strict';
-
 app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
     function ($http, baseServiceUrl, authentication) {
 

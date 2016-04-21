@@ -1,3 +1,4 @@
+"use strict";
 app.factory('authentication',
     function () {
         var key = 'user';
