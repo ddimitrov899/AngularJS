@@ -5,7 +5,7 @@ app.controller('DashboardController',
         function ($scope, $timeout, userService, projectService, issueService) {
             $scope.readyDownload = false;
             var result = [];
-            $scope.isNormal = userService.setLocalStorageIsNormal();
+            $scope.service = userService;
             projectService.getAllProject().then(function (data) {
                 var numberOfProject = data.data.length;
                 var id = 1;
@@ -21,6 +21,7 @@ app.controller('DashboardController',
                 $scope.issues = result;
                 $scope.pageTitle = 'Dashboard';
                 $scope.readyDownload = true;
-            }, 5000)
+                console.log(result);
+            }, 7000)
 
         }]);

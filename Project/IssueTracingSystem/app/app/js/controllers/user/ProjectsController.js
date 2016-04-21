@@ -29,5 +29,5 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
                 })
             }
         };
-
+        
     }]);

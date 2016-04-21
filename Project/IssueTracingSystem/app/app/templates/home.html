@@ -17,8 +17,8 @@
 </div>
 
 
-<div class="container" ng-controller="DashboardController" ng-if="isNormal">
-    <div >
+<div class="container" ng-if="authService.isNormalUser()">
+    <div ng-controller="DashboardController" >
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -51,6 +51,6 @@
     </div>
 </div>
 
-<div  ng-if="authService.isLead()">
-
+<div ng-if="authService.isLead()">
+TODO
 </div>

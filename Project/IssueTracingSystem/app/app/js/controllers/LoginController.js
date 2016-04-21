@@ -6,7 +6,9 @@ app.controller('LoginController', ['$scope', '$rootScope', '$location', 'userSer
             userService.login(user).then(function (success) {
                 console.log(success);
                 authentication.saveUserStorage(angular.toJson(success));
+                userService.setLocalStorageIsNormal();
                 notifyService.showSuccess('Success Login' + 'Welcome ' + success.data.userName +' !');
+                
                 $location.path('/')
             }, function (error) {
                 console.log(error);

@@ -98,18 +98,19 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
             return isLogged;
         }
 
-        function setLocalStorageIsNormal(){
-            localStorage['isNormal'] = isLoggedIn() &&(!isAdmin()) && (!isLeadProject());
+        function setLocalStorageIsNormal() {
+            localStorage['isNormal'] = isLoggedIn() && (!isAdmin()) && (!isLeadProject());
+
         }
 
         function isNormalUser() {
-            return localStorage['isNormal'];
+            return localStorage['isNormal'] == 'true';
         }
 
         function isLeadProject() {
             var currentUser = getCurrentUser();
             var isLead = false;
-            if(currentUser.userName == 'oracle@gmail.bg'){
+            if (currentUser != undefined && currentUser.userName == 'oracle@gmail.bg') {
                 isLead = true;
             }
             return isLead;
@@ -135,7 +136,7 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
             getAuthHeaders: getAuthHeaders,
             makeAdmin: makeAdmin,
             changePassword: changePassword,
-            setLocalStorageIsNormal:setLocalStorageIsNormal,
+            setLocalStorageIsNormal: setLocalStorageIsNormal,
             isLead: isLeadProject
 
         }
