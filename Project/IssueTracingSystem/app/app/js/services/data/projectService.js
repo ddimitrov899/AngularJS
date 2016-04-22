@@ -1,4 +1,6 @@
-app.factory('projectService', ['$http', 'baseServiceUrl', 'authentication', function ($http, baseServiceUrl, authentication) {
+"use strict";
+app.factory('projectService', ['$http', 'baseServiceUrl', 'authentication', 
+    function ($http, baseServiceUrl, authentication) {
 
     function getAllProject() {
         var header = authentication.getUserHeaderStorage();

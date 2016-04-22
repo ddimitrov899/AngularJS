@@ -11,7 +11,7 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
         }else {
             projectService.getAllProject().then(function (data) {
                 $scope.projects = data.data;
-                console.log(data);
+           
             });
         }
         $scope.selectedId = function (id) {
@@ -20,7 +20,7 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
                 currentId = id;
 
                 issueService.getIssuesById(id).then(function (data) {
-                    console.log(data);
+              
                     $scope.readyDownload = true;
 
                     result.push(data.data);
@@ -29,5 +29,5 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
                 })
             }
         };
-
+        
     }]);
