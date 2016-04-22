@@ -12,7 +12,19 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
             return $http(request);
         }
 
+        function editIssuesById(data, id) {
+            var header = authentication.getUserHeaderStorage();
+            var request = {
+                method: 'PUT',
+                url: baseServiceUrl + 'issues/' + Id,
+                data: data,
+                headers: header
+            };
+            return $http(request);
+        }
+
         return {
-            getIssuesById: getIssuesById
+            getIssuesById: getIssuesById,
+            editIssuesById: editIssuesById
         }
     }]);
