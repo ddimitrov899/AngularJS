@@ -1,10 +1,10 @@
-app.controller('ProjectsController', ['$scope', '$location', 'projectService', 'issueService', 'authentication', 'notifyService',
-    function ($scope, $location, projectService, issueService, authentication, notifyService) {
+app.controller('ProjectsController', ['$scope', '$location', 'projectService', 'authentication', 'issueService', 'userService', 'notifyService',
+    function ($scope, $location, projectService, authentication,issueService, userService, notifyService) {
         $scope.readyDownload = false;
         $scope.projects = [];
-        var resultProject = [];
+        $scope.authService = userService;
         var result = [];
-        var currentId = 0;
+        var projectData = [];
         var numberOfProject;
         var isLogged = authentication.getUser();
         if (!isLogged) {
@@ -33,8 +33,12 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
                 $scope.issues = result;
                 console.log(name);
             }
+        };
+
+        $scope.addButton = function (id) {
+            $location.path('/projects/' + id + '/add-issue');
         }
 
     }]);
-var projectData = [];
+
 
