@@ -12,7 +12,7 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
             return $http(request);
         }
 
-        function editIssuesById(data, id) {
+        function editIssuesById(data, Id) {
             var header = authentication.getUserHeaderStorage();
             var request = {
                 method: 'PUT',
@@ -23,8 +23,19 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
             return $http(request);
         }
 
+        function changeStatus(Id, statusId) {
+            var header = authentication.getUserHeaderStorage();
+            var request = {
+                method: 'PUT',
+                url: baseServiceUrl + 'issues/' + Id + '/changestatus?statusid=' + statusId,
+                headers: header
+            };
+            return $http(request);
+        }
+
         return {
             getIssuesById: getIssuesById,
-            editIssuesById: editIssuesById
+            editIssuesById: editIssuesById,
+            changeStatus: changeStatus
         }
     }]);

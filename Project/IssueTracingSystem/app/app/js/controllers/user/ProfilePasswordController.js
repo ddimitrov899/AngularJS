@@ -20,7 +20,7 @@ app.controller('ProfilePasswordController', ['$scope', '$rootScope', '$location'
 
                 }, function(error){
                     console.log(error);
-                    notifyService.showError('The old password in not mach!', error);
+                    notifyService.showError('The old password in not mach!', error.data);
                 })
             }
         }

@@ -6,7 +6,8 @@
 
         <div class="inline-edit-block">
             <h1>{{promiseIssue.IssueKey}}</h1>
-            <a ng-controller="EditController" ng-click="issueProjectEdit(issueProject, promiseIssue, projectService.Id)" class="btn btn-success">Edit</a>
+            <a ng-controller="EditController" ng-click="issueProjectEdit(issueProject, promiseIssue, projectService.Id)"
+               class="btn btn-success margin-button">Edit</a>
         </div>
 
         <div class="form-group">
@@ -67,6 +68,9 @@
     </div>
 
     <div class="col-lg-2">
-        TODO Change statuses
+        <a ng-click="openButton(promiseIssue.Id, promiseIssue.Status.Name)" class="btn btn-success margin-button">Open</a>
+        <a ng-click="closeButton(promiseIssue.Id, promiseIssue.Status.Name)" class="btn btn-success margin-button">Close</a>
+        <a ng-click="inProgresButton(promiseIssue.Id, promiseIssue.Status.Name)" class="btn btn-success">In Progress</a>
+        <a ng-click="resolvedButton(promiseIssue.Id, promiseIssue.Status.Name)" class="btn btn-success">Resolved</a>
     </div>
 </div>

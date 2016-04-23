@@ -64,7 +64,9 @@ body {
 .due-date {
     width: 100px;
 }
-
+.margin-button:last-child{
+    margin-left: 20px;
+}
 .container {
     margin: 0;
 }
