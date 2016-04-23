@@ -16,17 +16,38 @@ body {
 .form-group {
     margin: 0 15px;
 }
-.inline-edit-block{
+
+.text-area-description {
+    width: 840px;
+    margin: 20px 0 0 15px;
+}
+
+.margin-top-label {
+    margin-top: 20px;
+}
+
+.add-form {
+    margin: 10px 45px 0 0;
+    padding: 0;
+}
+
+.fixed-description-form {
+    margin: 20px 0 0 0;
+}
+
+.inline-edit-block {
     display: -webkit-box;
     width: 280px;
     margin: 0 auto;
 }
-.author{
+
+.author {
     margin: 20px 0 20px 0;
     color: #00b3ee;
     font-size: 1.1em;
     display: inline;
 }
+
 .form {
     margin-bottom: 40px;
 }
@@ -64,9 +85,11 @@ body {
 .due-date {
     width: 100px;
 }
-.margin-button:last-child{
+
+.margin-button:last-child {
     margin-left: 20px;
 }
+
 .container {
     margin: 0;
 }
@@ -77,8 +100,17 @@ body {
     height: auto;
 }
 
+.button-fix-center {
+    margin: 25px 325px 0 350px;
+    width: 300px;
+}
+
 a {
     margin-top: 20px;
+}
+
+.fix-center {
+    margin-right: 110px;
 }
 
 footer {
