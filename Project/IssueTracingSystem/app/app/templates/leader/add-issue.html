@@ -23,8 +23,8 @@
                             <div class="col-sm-8">
                                 <!--TODO list projects-->
                                 <select name="project-name" class="form-control"
-                                        ng-options="project.Name for project in projects | unique: 'Name'"
-                                        ng-model="addIssueInProject.Project">
+                                        ng-options="project.Name for project in projectsData | unique: 'Name'"
+                                        ng-model="addIssueInProject.Project.Name">
                                 </select>
                             </div>
                         </div>
@@ -34,9 +34,9 @@
                             <label class="col-sm-1 col-sm-offset-1 control-label add-form">AssignedId: </label>
                             <div class="col-sm-8">
                                 <!--TODO list assigned email-->
-                                <select name="project-name" class="form-control"
-                                        ng-options="project.Name for project in projects | unique: 'Name'"
-                                        ng-model="addIssueInProject.Assigned">
+                                <select class="form-control"
+                                        ng-options="user.id as user.Username for user in usersName"
+                                        ng-model="addIssueInProject.selected">
                                 </select>
                             </div>
                         </div>
@@ -70,9 +70,10 @@
                             <label class="col-sm-1 col-sm-offset-1 control-label add-form">PriorityId: </label>
                             <div class="col-sm-9">
                                 <!--TODO list priority-->
-                                <select name="project-name" class="form-control"
-                                        ng-options="project.Name for project in projects | unique: 'Name'"
-                                        ng-model="addIssueInProject.Priority">
+                                <select class="form-control" ng-model="addIssueInProject.Priority">
+                                    <option value="1">Low</option>
+                                    <option value="2">Medium</option>
+                                    <option value="3">Height</option>
                                 </select>
                             </div>
                         </div>

@@ -107,6 +107,7 @@ body {
 
 a {
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .fix-center {

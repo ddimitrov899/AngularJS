@@ -39,6 +39,16 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
             return $http(request);
         }
 
+        function getAllUsers() {
+            var request = {
+                method: 'Get',
+                url: baseServiceUrl + 'users',
+                headers: authentication.getUserHeaderStorage()
+            };
+
+            return $http(request);
+        }
+
         function getCurrentUser() {
             var userToken = authentication.getUser();
             if (userToken) {
@@ -136,7 +146,7 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
             makeAdmin: makeAdmin,
             changePassword: changePassword,
             setLocalStorageIsNormal: setLocalStorageIsNormal,
-            isLead: isLeadProject
-
+            isLead: isLeadProject,
+            getAllUsers: getAllUsers
         }
     }]);
