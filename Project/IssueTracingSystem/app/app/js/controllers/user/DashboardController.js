@@ -10,8 +10,8 @@ app.controller('DashboardController',
             projectService.getAllProject().then(function (data) {
                 numberOfProject = data.data.length;
                 var id = 1;
-                while (id !== numberOfProject + 1) {
-                    issueService.getIssuesById(id).then(function (data) {
+                while (id !== 1 + 1) {
+                    issueService.getIssuesById(663).then(function (data) {
                         result.push(data.data);
                     });
                     id++;

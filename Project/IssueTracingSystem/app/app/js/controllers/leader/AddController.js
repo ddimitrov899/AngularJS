@@ -4,7 +4,23 @@ app.controller('AddController',
     ['$scope', '$location', '$route', 'notifyService', 'userService', 'issueService', 'projectService',
         function ($scope, $location, $route, notifyService, userService, issueService, projectService) {
             $scope.addIssue = function (issue) {
-                console.log(issue)
+                var data = {
+                    Title: issue.Title,
+                    Description: issue.Description,
+                    DueDate: issue.DueDate,
+                    ProjectId: parseInt(issue.ProjectId),
+                    AssigneeId: issue.AssigneeId,
+                    PriorityId: parseInt(issue.PriorityId),
+                    Labels: []
+                };
+                console.log(data);
+                issueService.addIssue(data).then(function(success){
+                    console.log(success);
+                    notifyService.showSuccess('You add successfully issue:' + success.data.Title);
+                    $location.path('/projects')
+                }, function (error) {
+                    console.log(error.data.Message);
+                });
             };
 
             var numberOfProject;
@@ -23,7 +39,6 @@ app.controller('AddController',
             });
             userService.getAllUsers().then(function (users) {
                 $scope.usersName = users.data;
-
             })
 
 

@@ -33,9 +33,21 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
             return $http(request);
         }
 
+        function addIssue(issue) {
+            var header = authentication.getUserHeaderStorage();
+            var request = {
+                method: 'POST',
+                url: baseServiceUrl + 'issues/',
+                data: issue,
+                headers: header
+            };
+            return $http(request);
+        }
+
         return {
             getIssuesById: getIssuesById,
             editIssuesById: editIssuesById,
-            changeStatus: changeStatus
+            changeStatus: changeStatus,
+            addIssue: addIssue
         }
     }]);
