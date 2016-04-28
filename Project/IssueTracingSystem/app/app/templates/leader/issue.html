@@ -30,7 +30,7 @@
             <label class="col-sm-3 col-sm-offset-3 control-label title-id-danger"><span>AssigneeId (current id: {{promiseIssue.Assignee.Id}})</span></label>
             <div class="col-sm-6 form-id-danger">
                 <input type="text"
-                       ng-model="issueProject.Assignee.Username"
+                       ng-model="issueProject.Assignee.Id"
                        placeholder="{{promiseIssue.Assignee.Username}}"
                        class="form-control"/>
             </div>
@@ -39,7 +39,7 @@
             <label class="col-sm-3 col-sm-offset-3 control-label title-id"><span>PriorityId (current id: {{promiseIssue.Priority.Id}})</span></label>
             <div class="col-sm-6 form-id">
                 <input type="text"
-                       ng-model="issueProject.Project.Name"
+                       ng-model="issueProject.Project.Id"
                        placeholder="{{promiseIssue.Priority.Name}}"
                        class="form-control"/>
             </div>

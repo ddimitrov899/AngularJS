@@ -12,6 +12,16 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
             return $http(request);
         }
 
+        function getAllIssuesById(pageNumber) {
+            var header = authentication.getUserHeaderStorage();
+            var request = {
+                method: 'GET',
+                url: baseServiceUrl + 'issues?filter=&pageSize=4&pageNumber=' + pageNumber,
+                headers: header
+            };
+            return $http(request);
+        }
+
         function editIssuesById(data, Id) {
             var header = authentication.getUserHeaderStorage();
             var request = {
@@ -46,6 +56,7 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
 
         return {
             getIssuesById: getIssuesById,
+            getAllIssuesById: getAllIssuesById,
             editIssuesById: editIssuesById,
             changeStatus: changeStatus,
             addIssue: addIssue

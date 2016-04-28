@@ -41,8 +41,18 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
 
         function getAllUsers() {
             var request = {
-                method: 'Get',
+                method: 'GET',
                 url: baseServiceUrl + 'users',
+                headers: authentication.getUserHeaderStorage()
+            };
+
+            return $http(request);
+        }
+
+        function getAllUsersByFilter() {
+            var request = {
+                method: 'GET',
+                url: baseServiceUrl + 'users?filter=Username.Contains("oracle")',
                 headers: authentication.getUserHeaderStorage()
             };
 
@@ -56,20 +66,19 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
             }
         }
 
-        function makeAdmin(user) {
+        function makeAdmin(userId) {
             var headerToken = authentication.getUserHeaderStorage();
             var request = {
                 method: 'POST',
                 url: baseServiceUrl + 'users/makeadmin',
-                data: user.Id,
+                data: {'UserId': userId},
                 headers: headerToken
 
             };
-            //TODO: Test
             return $http(request);
         }
 
-        function userMeIsAdmin() {
+        function userInfo() {
             var headerToken = authentication.getUserHeaderStorage();
             var request = {
                 method: 'GET',
@@ -78,7 +87,7 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
             };
             var isAdmin = false;
             $http(request).then(function (admin) {
-                isAdmin = admin.data.isAdmin;
+                isAdmin = admin.data;
             });
             return isAdmin;
 
@@ -108,7 +117,7 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
         }
 
         function setLocalStorageIsNormal() {
-            localStorage['isNormal'] = isLoggedIn() && (!isAdmin()) && (!isLeadProject());
+            localStorage['isNormal'] = isLoggedIn() && (!isAdminUser()) && (!isLeadProject());
 
         }
 
@@ -125,9 +134,9 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
             return isLead;
         }
 
-        function isAdmin() {
-            var currentUserIsAdmin = userMeIsAdmin();
-            return currentUserIsAdmin;
+        function isAdminUser() {
+            var currentUserIsAdmin = userInfo();
+            return currentUserIsAdmin.isAdmin;
         }
 
         function getAuthHeaders() {
@@ -141,12 +150,13 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
             isAnonymous: isAnonymous,
             isLoggedIn: isLoggedIn,
             isNormalUser: isNormalUser,
-            isAdmin: isAdmin,
+            isAdminUser: isAdminUser,
             getAuthHeaders: getAuthHeaders,
             makeAdmin: makeAdmin,
             changePassword: changePassword,
             setLocalStorageIsNormal: setLocalStorageIsNormal,
             isLead: isLeadProject,
-            getAllUsers: getAllUsers
+            getAllUsers: getAllUsers,
+            getAllUsersByFilter: getAllUsersByFilter
         }
     }]);

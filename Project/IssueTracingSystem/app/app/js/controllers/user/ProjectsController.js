@@ -1,6 +1,7 @@
 app.controller('ProjectsController', ['$scope', '$location', 'projectService', 'authentication', 'issueService', 'userService', 'notifyService',
     function ($scope, $location, projectService, authentication,issueService, userService, notifyService) {
         $scope.readyDownload = false;
+        $scope.readyListProject = false;
         $scope.projects = [];
         $scope.authService = userService;
         var result = [];
@@ -25,7 +26,9 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
             }
 
             $scope.projects = projectData;
+
         });
+        $scope.readyListProject = true;
         $scope.selectedName = function (name) {
             if (name != undefined) {
                 $scope.nameProject = name;

@@ -1,4 +1,4 @@
-<div>
+<div ng-if="readyListProject">
     <h1>Project Filter</h1>
     <div class="center-block">
         <select class="form-control" ng-options="project.Name for project in projects | unique: 'Name'" ng-model="selected"
@@ -11,7 +11,7 @@
     <div ng-show="readyDownload">
         <div class="row">
             <div class="col-md-2">
-                <a ng-click="addButton(selected.Id)" class="btn btn-info">Add issue</a>
+                <a ng-if="authService.isLead()" ng-click="addButton(selected.Id)" class="btn btn-info">Add issue</a>
             </div>
             <div class="col-md-8">
                 <table class="table table-striped table-hover ">

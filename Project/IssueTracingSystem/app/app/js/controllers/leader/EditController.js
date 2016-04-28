@@ -8,41 +8,44 @@ app.controller('EditController',
                 notifyService.showError('Please login first.');
                 $location.path('/');
             }
-            $scope.issueProjectEdit = function (editData, oldData) {
-                var data = {};
-                if (editData != undefined) {
-                    data = editData;
-                }
-                if (!data.Title) {
-                    data.Title = oldData.Title;
-                }
-                if (!data.Description) {
-                    data.Description = oldData.Description;
-                }
-                if (!data.Assignee) {
-                    data.Assignee = {};
-                    data.Assignee.Username = oldData.Assignee.Username;
-                }
-                if (!data.Priority) {
-                    data.Priority = {};
-                    data.Priority.Name = oldData.Priority.Name;
-                }
-                if (!data.DueDate) {
-                    data.DueDate = oldData.DueDate;
-                }
 
-                issueService.editIssuesById(data, oldData.Id).then(function (success) {
-                    notifyService.showSuccess('You update Issue successfully')
-                }, function (error) {
-                    notifyService.showError('The Issue', error.data)
-                });
+            $scope.issueProjectEdit = function (editData, oldData) {
+                if(userService.isLead()) {
+                    var data = {};
+                    if (editData != undefined) {
+                        data = editData;
+                    }
+                    if (!data.Title) {
+                        data.Title = oldData.Title;
+                    }
+                    if (!data.Description) {
+                        data.Description = oldData.Description;
+                    }
+                    if (!data.AssigneeId) {
+                        data.AssigneeId = oldData.Assignee.Id;
+                    }
+                    if (!data.PriorityId) {
+                        data.PriorityId = oldData.Priority.Id;
+                    }
+                    if (!data.DueDate) {
+                        data.DueDate = oldData.DueDate;
+                    }
+
+                    issueService.editIssuesById(data, oldData.Id).then(function (success) {
+                        notifyService.showSuccess('You update Issue successfully')
+                    }, function (error) {
+                        notifyService.showError('The Issue', error.data)
+                    });
+                }else{
+                    notifyService.showError('You not a lead of project!')
+                }
             };
             //TODO fixed button status and issueProjectEdit
             $scope.openButton = function (id, status) {
                 if (status == 'In Progress') {
                     //TODO: put status Id
                 } else {
-                    var authenticationAdmin = userService.isAdmin();
+                    var authenticationAdmin = userService.isAdminUser();
                     var authenticationLead = userService.isLead();
                     if (authenticationAdmin && authenticationLead) {
                         var errorMsg = 'This status cannot be change!';
@@ -60,7 +63,7 @@ app.controller('EditController',
                 if (status == 'In Progress') {
                     //TODO: put status Id
                 } else {
-                    var authenticationAdmin = userService.isAdmin();
+                    var authenticationAdmin = userService.isAdminUser();
                     var authenticationLead = userService.isLead();
                     if (authenticationAdmin && authenticationLead) {
                         var errorMsg = 'This status cannot be change!';

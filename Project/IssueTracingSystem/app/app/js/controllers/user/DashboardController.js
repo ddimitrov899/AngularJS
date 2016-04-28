@@ -7,16 +7,19 @@ app.controller('DashboardController',
             var result = [];
             var numberOfProject;
             $scope.service = userService;
-            projectService.getAllProject().then(function (data) {
-                numberOfProject = data.data.length;
-                var id = 1;
-                while (id !== 1 + 1) {
-                    issueService.getIssuesById(663).then(function (data) {
-                        result.push(data.data);
-                    });
-                    id++;
-                }
-            });
+            issueService.getAllIssuesById()
+
+
+            // projectService.getAllProject().then(function (data) {
+            //     numberOfProject = data.data.length;
+            //     var id = 1;
+            //     while (id !== numberOfProject + 1) {
+            //         issueService.getIssuesById(663).then(function (data) {
+            //             result.push(data.data);
+            //         });
+            //         id++;
+            //     }
+            // });
 
             $timeout(function () {
                 $scope.issues = result;
