@@ -68,9 +68,33 @@
     </div>
 
     <div class="col-lg-2">
-        <a ng-click="openButton(promiseIssue.Id, promiseIssue.Status.Name)" class="btn btn-success margin-button">Open</a>
-        <a ng-click="closeButton(promiseIssue.Id, promiseIssue.Status.Name)" class="btn btn-success margin-button">Close</a>
+        <a ng-click="openButton(promiseIssue.Id, promiseIssue.Status.Id)" class="btn btn-success margin-button">Open</a>
+        <a ng-click="closeButton(promiseIssue.Id, promiseIssue.Status.Name)"
+           class="btn btn-success margin-button">Close</a>
         <a ng-click="inProgresButton(promiseIssue.Id, promiseIssue.Status.Name)" class="btn btn-success">In Progress</a>
         <a ng-click="resolvedButton(promiseIssue.Id, promiseIssue.Status.Name)" class="btn btn-success">Resolved</a>
+    </div>
+</div>
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Comments</h3>
+    </div>
+    <div class="panel-body row">
+        <ul ng-repeat="comment in allComments">
+            <li><h4 class="center">{{comment.Text}}</h4></li>
+            <hr />
+        </ul>
+    </div>
+</div>
+<div class="panel panel-info" >
+    <div class="panel-heading">
+        <h3 class="panel-title">Add Comment</h3>
+    </div>
+    <div class="panel-body row">
+        <textarea class="form-control" ng-model="addIssueComment.Comment"
+                  rows="3" id="textArea"></textarea>
+        <div class="center-block">
+            <a ng-controller="AddCommentController" ng-click="addComment(promiseIssue.Id, addIssueComment.Comment)" class="btn btn-info">Add Comment</a>
+        </div>
     </div>
 </div>

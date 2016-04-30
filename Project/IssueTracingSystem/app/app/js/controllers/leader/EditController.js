@@ -9,6 +9,7 @@ app.controller('EditController',
                 $location.path('/');
             }
 
+
             $scope.issueProjectEdit = function (editData, oldData) {
                 if(userService.isLead()) {
                     var data = {};
@@ -76,5 +77,6 @@ app.controller('EditController',
                     }
                 }
             };
+
         }
     ]);

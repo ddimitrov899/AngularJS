@@ -1,6 +1,7 @@
 'use strict';
 app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
     function ($http, baseServiceUrl, authentication) {
+        var isAdmin = false;
 
         function login(user) {
             user.grant_type = 'password';
@@ -30,6 +31,7 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
         }
 
         function logout() {
+            isAdmin = false;
             var request = {
                 method: 'POST',
                 url: baseServiceUrl + 'api/Account/logout',
@@ -52,7 +54,7 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
         function getAllUsersByFilter() {
             var request = {
                 method: 'GET',
-                url: baseServiceUrl + 'users?filter=Username.Contains("oracle")',
+                url: baseServiceUrl + 'users?filter=Username.Contains("oracle")&("admin@softuni")',
                 headers: authentication.getUserHeaderStorage()
             };
 
@@ -85,11 +87,11 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
                 url: baseServiceUrl + 'users/me',
                 headers: headerToken
             };
-            var isAdmin = false;
+
             $http(request).then(function (admin) {
                 isAdmin = admin.data;
             });
-            return isAdmin;
+
 
         }
 
@@ -135,8 +137,7 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
         }
 
         function isAdminUser() {
-            var currentUserIsAdmin = userInfo();
-            return currentUserIsAdmin.isAdmin;
+            return isAdmin.isAdmin;
         }
 
         function getAuthHeaders() {
@@ -157,6 +158,7 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
             setLocalStorageIsNormal: setLocalStorageIsNormal,
             isLead: isLeadProject,
             getAllUsers: getAllUsers,
-            getAllUsersByFilter: getAllUsersByFilter
+            getAllUsersByFilter: getAllUsersByFilter,
+            userInfo: userInfo
         }
     }]);

@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var app = angular.module('issueTrackingSystemApp', ['ngRoute', 'angular.filter']);
+var app = angular.module('issueTrackingSystemApp', ['ngRoute', 'angular.filter', 'angularUtils.directives.dirPagination']);
 
 app.constant('baseServiceUrl', 'http://softuni-issue-tracker.azurewebsites.net/');
 app.constant('pageSize', 5);

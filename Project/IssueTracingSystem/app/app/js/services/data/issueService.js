@@ -22,12 +22,43 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
             return $http(request);
         }
 
+        function getMyIssues(pageNumber) {
+            var header = authentication.getUserHeaderStorage();
+            var request = {
+                method: 'GET',
+                url: baseServiceUrl + 'issues/me?orderBy=DueDate desc, IssueKey&pageSize=20&pageNumber=1',
+                headers: header
+            };
+            return $http(request);
+        }
+
         function editIssuesById(data, Id) {
             var header = authentication.getUserHeaderStorage();
             var request = {
                 method: 'PUT',
                 url: baseServiceUrl + 'issues/' + Id,
                 data: data,
+                headers: header
+            };
+            return $http(request);
+        }
+
+        function getIssueComments(Id) {
+            var header = authentication.getUserHeaderStorage();
+            var request = {
+                method: 'GET',
+                url: baseServiceUrl + 'issues/' + Id + '/comments',
+                headers: header
+            };
+            return $http(request);
+        }
+
+        function addIssueComment(Id, data) {
+            var header = authentication.getUserHeaderStorage();
+            var request = {
+                method: 'POST',
+                url: baseServiceUrl + 'issues/' + Id + '/comments',
+                data: {'Text': data},
                 headers: header
             };
             return $http(request);
@@ -57,8 +88,11 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
         return {
             getIssuesById: getIssuesById,
             getAllIssuesById: getAllIssuesById,
+            getMyIssues: getMyIssues,
             editIssuesById: editIssuesById,
             changeStatus: changeStatus,
-            addIssue: addIssue
+            addIssue: addIssue,
+            getIssueComments: getIssueComments,
+            addIssueComment: addIssueComment
         }
     }]);

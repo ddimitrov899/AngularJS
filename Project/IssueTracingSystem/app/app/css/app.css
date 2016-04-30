@@ -114,6 +114,10 @@ a {
     margin-right: 110px;
 }
 
+ul li {
+    list-style: none;
+}
+
 footer {
     margin-top: 30px;
 }

@@ -4,22 +4,11 @@ app.controller('DashboardController',
     ['$scope', '$timeout', 'userService', 'projectService', 'issueService',
         function ($scope, $timeout, userService, projectService, issueService) {
             $scope.readyDownload = false;
-            var result = [];
-            var numberOfProject;
+            var result;
             $scope.service = userService;
-            issueService.getAllIssuesById()
-
-
-            // projectService.getAllProject().then(function (data) {
-            //     numberOfProject = data.data.length;
-            //     var id = 1;
-            //     while (id !== numberOfProject + 1) {
-            //         issueService.getIssuesById(663).then(function (data) {
-            //             result.push(data.data);
-            //         });
-            //         id++;
-            //     }
-            // });
+            issueService.getMyIssues().then(function (data) {
+                result = data.data.Issues;
+            });
 
             $timeout(function () {
                 $scope.issues = result;

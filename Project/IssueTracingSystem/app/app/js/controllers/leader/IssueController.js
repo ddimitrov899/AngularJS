@@ -5,6 +5,7 @@ app.controller('IssueController', ['$scope', '$location', '$route', 'notifyServi
          $scope.pageTitle = 'Issue Page';
          $scope.readyIssueDownload = false;
         $scope.promiseIssue = issueProject;
+        $scope.allComments = comment;
         var isLogged = authentication.getUser();
         if (!isLogged) {
             notifyService.showError('Please login first.');
@@ -18,7 +19,13 @@ app.controller('IssueController', ['$scope', '$location', '$route', 'notifyServi
                 issueProject = issue.data;
                 $route.reload();
             });
+            issueService.getIssueComments(id).then(function (comments) {
+                console.log(comments.data);
+                comment = comments.data;
+                $route.reload();
+            });
         };
 
     }]);
 var issueProject = {};
+var comment = {};
