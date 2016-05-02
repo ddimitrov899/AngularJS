@@ -12,11 +12,11 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
             return $http(request);
         }
 
-        function getAllIssuesById(pageNumber) {
+        function getAllIssuesById() {
             var header = authentication.getUserHeaderStorage();
             var request = {
                 method: 'GET',
-                url: baseServiceUrl + 'issues?filter=&pageSize=4&pageNumber=' + pageNumber,
+                url: baseServiceUrl + 'issues?filter=&pageSize=10&pageNumber=1',
                 headers: header
             };
             return $http(request);

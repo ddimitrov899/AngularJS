@@ -5,7 +5,6 @@ app.controller('DashboardController',
         function ($scope, $timeout, userService, projectService, issueService) {
             $scope.readyDownload = false;
             var result;
-            $scope.service = userService;
             issueService.getMyIssues().then(function (data) {
                 result = data.data.Issues;
             });
