@@ -12,8 +12,8 @@ app.factory('notifyService',
              function showError(msg, serverError) {
                 // Collect errors to display from the server response
                  var errors = [];
-                 if (serverError && serverError.message) {
-                     errors.push(serverError.message);
+                 if (serverError && serverError.Message) {
+                     errors.push(serverError.Message);
                  }
                  if (serverError && serverError.error_description) {
                      var modelStateErrors = serverError.error_description;

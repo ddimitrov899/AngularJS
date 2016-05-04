@@ -90,8 +90,18 @@ body {
     margin-left: 20px;
 }
 
+.center-btn {
+    margin-left: 15%;
+}
+
 .container {
     margin: 0;
+}
+
+.border-panel {
+    background-color: tomato;
+    border: 1px solid #dc143c;
+    box-shadow: 10px 10px 5px blue;
 }
 
 .center-block {

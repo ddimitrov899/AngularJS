@@ -1,6 +1,12 @@
 "use strict";
-app.controller('AdminController', ['$scope', '$timeout', 'issueService',
-    function ($scope, $timeout, issueService) {
+app.controller('AdminController', ['$scope', '$timeout', '$location','issueService', 'authentication',
+    function ($scope, $timeout, $location,issueService, authentication) {
+        var isLogged = authentication.getUser();
+        if(!isLogged){
+            notifyService.showError('Please login first.');
+            $location.path('/');
+        }
+
         $scope.authService = issueService;
         $scope.readyDownload = false;
         var totalCount;

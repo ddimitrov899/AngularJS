@@ -54,7 +54,7 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
         function getAllUsersByFilter() {
             var request = {
                 method: 'GET',
-                url: baseServiceUrl + 'users?filter=Username.Contains("oracle")&("admin@softuni")',
+                url: baseServiceUrl + 'users?filter=Username.Contains("oracle")',
                 headers: authentication.getUserHeaderStorage()
             };
 
@@ -71,7 +71,7 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
         function makeAdmin(userId) {
             var headerToken = authentication.getUserHeaderStorage();
             var request = {
-                method: 'POST',
+                method: 'PUT',
                 url: baseServiceUrl + 'users/makeadmin',
                 data: {'UserId': userId},
                 headers: headerToken

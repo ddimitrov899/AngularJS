@@ -37,10 +37,24 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'IssueController'
     });
 
-
     $routeProvider.when('/projects/:id/add-issue', {
         templateUrl: 'templates/leader/add-issue.html',
         controller: 'AddController'
+    });
+
+    $routeProvider.when('/admin/panel', {
+        templateUrl: 'templates/admin/panel.html',
+        controller: 'AdminPanelController'
+    });
+
+    $routeProvider.when('/make/admin', {
+        templateUrl: 'templates/admin/make.html',
+        controller: 'MakeAdminController'
+    });
+
+    $routeProvider.when('/projects/add', {
+        templateUrl: 'templates/admin/add-projects.html',
+        controller: 'AddProjectController'
     });
 
     $routeProvider.otherwise({redirectTo: '/'});
