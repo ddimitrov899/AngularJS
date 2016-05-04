@@ -16,7 +16,7 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
             var header = authentication.getUserHeaderStorage();
             var request = {
                 method: 'GET',
-                url: baseServiceUrl + 'issues?filter=&pageSize=10&pageNumber=1',
+                url: baseServiceUrl + 'issues?filter=&orderBy=DueDate desc, IssueKey&pageSize=10&pageNumber=1',
                 headers: header
             };
             return $http(request);

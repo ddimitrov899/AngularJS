@@ -9,11 +9,22 @@ app.factory('projectService', ['$http', 'baseServiceUrl', 'authentication',
             url: baseServiceUrl + 'projects',
             headers: header
         };
+        return $http(request);
+    }
 
+    function addProject(projectData) {
+        var header = authentication.getUserHeaderStorage();
+        var request = {
+            method: 'POST',
+            url: baseServiceUrl + 'projects',
+            data: projectData,
+            headers: header
+        };
         return $http(request);
     }
 
     return {
-        getAllProject: getAllProject
+        getAllProject: getAllProject,
+        addProject: addProject
     }
 }]);
