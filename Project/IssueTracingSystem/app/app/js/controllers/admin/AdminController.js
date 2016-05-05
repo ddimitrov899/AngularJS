@@ -1,6 +1,6 @@
 "use strict";
-app.controller('AdminController', ['$scope', '$timeout', '$location','issueService', 'authentication',
-    function ($scope, $timeout, $location,issueService, authentication) {
+app.controller('AdminController', ['$scope', '$timeout', '$location','issueService', 'authentication', 'notifyService',
+    function ($scope, $timeout, $location,issueService, authentication, notifyService) {
         var isLogged = authentication.getUser();
         if(!isLogged){
             notifyService.showError('Please login first.');
@@ -20,6 +20,8 @@ app.controller('AdminController', ['$scope', '$timeout', '$location','issueServi
                 issueService.getIssuesById(id).then(function (success) {
                     result.push(success.data);
 
+                }, function (error) {
+                    notifyService.showError('', error.data);
                 });
                 id++;
             }
@@ -29,6 +31,5 @@ app.controller('AdminController', ['$scope', '$timeout', '$location','issueServi
             $scope.issues = result;
             $scope.pageTitle = 'Dashboard';
             $scope.readyDownload = true;
-            console.log(result);
         }, 19000)
     }]);

@@ -22,7 +22,7 @@
                             <label class="col-sm-1 col-sm-offset-1 control-label add-form">Project: </label>
                             <div class="col-sm-8">
                                 <select name="project-name" class="form-control"
-                                        ng-options="project.Id as project.Name for project in projectsData | unique: 'Name'"
+                                        ng-options="project.Id as project.Name for project in projectsData.Projects | unique: 'Name'"
                                         ng-model="addIssueInProject.ProjectId">
                                 </select>
                             </div>
@@ -67,9 +67,9 @@
                         <div class="form-group">
                             <label class="col-sm-1 col-sm-offset-1 control-label add-form">PriorityId: </label>
                             <div class="col-sm-9">
-                                <select class="form-control" ng-model="addIssueInProject.PriorityId">
-                                    <option value="1">Low</option>
-                                    <option value="2">Urgent</option>
+                                <!--<select class="form-control" ng-options="priority.Priorities.Id as priority.Priorities.Name for priority in projectsData.Projects" ng-model="addIssueInProject.PriorityId"></select>-->
+                                <select name="selectPriority" id="selectPriority" class="form-control" ng-repeat="prioritys in projectsData.Projects" ng-model="addIssueInProject.PriorityId">
+                                    <option ng-repeat="priority in prioritys.Priorities"  value="{{priority.Id}}">{{priority.Name}}</option>
                                 </select>
                             </div>
                         </div>

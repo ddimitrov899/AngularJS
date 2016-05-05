@@ -76,7 +76,7 @@
                         <td><p><a ng-controller="IssueController" ng-click="issueParams(issue.Id)">{{issue.Title}}</a>
                         </p></td>
                         <td><p class="fixed-description">{{issue.Description}}</p></td>
-                        <td><p><a>{{issue.Project.Name}}</a></p></td>
+                        <td><p><a ng-controller="EditProjectController" ng-click="projectId(issue.Id)">{{issue.Project.Name}}</a></p></td>
                         <td><p class="due-date">{{issue.DueDate | date : 'dd-MM-yyyy'}}</p></td>
                     </tr>
 
@@ -120,7 +120,7 @@
                         <td><p><a ng-controller="IssueController" ng-click="issueParams(issue.Id)">{{issue.Title}}</a>
                         </p></td>
                         <td><p class="fixed-description">{{issue.Description}}</p></td>
-                        <td><p><a>{{issue.Project.Name}}</a></p></td>
+                        <td><p><a ng-controller="EditProjectController" ng-click="projectId(issue.Id)">{{issue.Project.Name}}</a></p></td>
                         <td><p class="due-date">{{issue.DueDate | date : 'dd-MM-yyyy'}}</p></td>
                     </tr>
 

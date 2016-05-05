@@ -5,36 +5,44 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
         $scope.projects = [];
         $scope.authService = userService;
         var result = [];
-        var projectData = [];
-        var numberOfProject;
         var isLogged = authentication.getUser();
         if (!isLogged) {
             notifyService.showError('Please login first.');
             $location.path('/');
         }
-        projectService.getAllProject().then(function (data) {
-            numberOfProject = data.data.length;
-            var id = 1;
-            while (id !== numberOfProject + 1) {
-                issueService.getIssuesById(id).then(function (data) {
-                    projectData.push(data.data.Project);
-                    result.push(data.data);
 
-
-                });
-                id++;
-            }
-
-            $scope.projects = projectData;
-
+        userService.userInfo().then(function (success) {
+           projectService.getProjectByLeadId(success.data.Id).then(function (success) {
+               $scope.projects = success.data.Projects;
+               console.log(success);
+           })
         });
+
+
+
+        // projectService.getAllProject().then(function (data) {
+        //     numberOfProject = data.data.length;
+        //     console.log(data);
+        //     var id = 1;
+        //     while (id !== numberOfProject + 1) {
+        //         issueService.getIssuesById(id).then(function (data) {
+        //             projectData.push(data.data.Project);
+        //             result.push(data.data);
+        //
+        //
+        //         });
+        //         id++;
+        //     }
+        //
+        //     $scope.projects = projectData;
+        //
+        // });
         $scope.readyListProject = true;
         $scope.selectedName = function (name) {
             if (name != undefined) {
                 $scope.nameProject = name;
                 $scope.readyDownload = true;
                 $scope.issues = result;
-                console.log(name);
             }
         };
 

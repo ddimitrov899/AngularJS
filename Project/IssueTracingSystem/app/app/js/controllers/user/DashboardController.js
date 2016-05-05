@@ -13,7 +13,6 @@ app.controller('DashboardController',
                 $scope.issues = result;
                 $scope.pageTitle = 'Dashboard';
                 $scope.readyDownload = true;
-                console.log(result);
             }, 5000)
 
         }]);

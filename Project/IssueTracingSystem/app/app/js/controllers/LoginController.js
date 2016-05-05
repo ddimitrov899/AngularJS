@@ -4,7 +4,6 @@ app.controller('LoginController', ['$scope', '$rootScope', '$location', 'userSer
     function ($scope, $rootScope, $location, userService, authentication, notifyService) {
         $scope.login = function (user) {
             userService.login(user).then(function (success) {
-                console.log(success);
                 authentication.saveUserStorage(angular.toJson(success));
                 userService.setLocalStorageIsNormal();
                 userService.userInfo();
@@ -12,7 +11,6 @@ app.controller('LoginController', ['$scope', '$rootScope', '$location', 'userSer
                 
                 $location.path('/')
             }, function (error) {
-                console.log(error);
                 notifyService.showError('Login failed:', error.data)
             })
         }

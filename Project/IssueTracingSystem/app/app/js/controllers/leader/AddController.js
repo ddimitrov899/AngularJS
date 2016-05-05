@@ -18,8 +18,9 @@ app.controller('AddController',
                     PriorityId: parseInt(issue.PriorityId),
                     Labels: []
                 };
+                console.log(issue);
                 issueService.addIssue(data).then(function(success){
-                    console.log(success);
+
                     notifyService.showSuccess('You add successfully issue:' + success.data.Title);
                     $location.path('/projects')
                 }, function (error) {
@@ -27,23 +28,31 @@ app.controller('AddController',
                 });
             };
 
-            var numberOfProject;
-            projectService.getAllProject().then(function (data) {
-                numberOfProject = data.data.length;
-                var id = 1;
-                while (id !== numberOfProject + 1) {
-                    issueService.getIssuesById(id).then(function (data) {
-                        projectData.push(data.data.Project);
-
-                    });
-                    id++;
-                }
-                $scope.projectsData = projectData;
-
+            userService.userInfo().then(function (success) {
+                projectService.getProjectByLeadId(success.data.Id).then(function (success) {
+                    $scope.projectsData = success.data;
+                })
             });
+
+
+            // var numberOfProject;
+            // projectService.getAllProject().then(function (data) {
+            //     numberOfProject = data.data.length;
+            //     var id = 1;
+            //     while (id !== numberOfProject + 1) {
+            //         issueService.getIssuesById(id).then(function (data) {
+            //             projectData.push(data.data.Project);
+            //
+            //         });
+            //         id++;
+            //     }
+            //     $scope.projectsData = projectData;
+            //
+            // });
             userService.getAllUsersByFilter().then(function (users) {
-                console.log(users.data);
                 $scope.usersName = users.data;
+            }, function (error) {
+                notifyService.showError('', error.data)
             })
 
 

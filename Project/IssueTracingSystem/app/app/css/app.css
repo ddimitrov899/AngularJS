@@ -3,7 +3,9 @@ body {
     width: 1200px;
     margin: 0 auto;
 }
-
+#wrapper{
+    width: 100%;
+}
 .center-view {
     width: 1200px;
     margin: 0 auto;

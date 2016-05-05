@@ -88,10 +88,11 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
                 headers: headerToken
             };
 
-            $http(request).then(function (admin) {
+            var promise = $http(request);
+                promise.then(function (admin) {
                 isAdmin = admin.data;
             });
-
+            return promise;
 
         }
 
