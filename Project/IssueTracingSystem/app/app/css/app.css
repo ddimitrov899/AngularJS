@@ -3,15 +3,17 @@ body {
     width: 1200px;
     margin: 0 auto;
 }
-#wrapper{
+
+#wrapper {
     width: 100%;
 }
+
 .center-view {
     width: 1200px;
     margin: 0 auto;
 }
 
-.panel-title, h1 {
+.panel-title, h1, h2 {
     text-align: center;
 }
 
@@ -52,6 +54,16 @@ body {
 
 .form {
     margin-bottom: 40px;
+}
+
+.form-edit-project {
+    width: 48%;
+    margin: 0 auto;
+}
+
+.stile-edit-project-body {
+    height: 1000px;
+    padding-left: 10px;
 }
 
 .title {

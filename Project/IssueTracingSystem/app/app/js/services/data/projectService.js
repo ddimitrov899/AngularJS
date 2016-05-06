@@ -22,6 +22,16 @@ app.factory('projectService', ['$http', 'baseServiceUrl', 'authentication',
             return $http(request);
         }
 
+        function getProjectById(id) {
+            var header = authentication.getUserHeaderStorage();
+            var request = {
+                method: 'GET',
+                url: baseServiceUrl + 'projects/' + id,
+                headers: header
+            };
+            return $http(request);
+        }
+
         function addProject(projectData) {
             var header = authentication.getUserHeaderStorage();
             var request = {
@@ -33,10 +43,23 @@ app.factory('projectService', ['$http', 'baseServiceUrl', 'authentication',
             return $http(request);
         }
 
+        function editProject(projectData, id) {
+            var header = authentication.getUserHeaderStorage();
+            var request = {
+                method: 'PUT',
+                url: baseServiceUrl + 'projects/' + id,
+                data: projectData,
+                headers: header
+            };
+            return $http(request);
+        }
+
 
         return {
             getAllProject: getAllProject,
             getProjectByLeadId: getProjectByLeadId,
-            addProject: addProject
+            getProjectById: getProjectById,
+            addProject: addProject,
+            editProject: editProject
         }
     }]);

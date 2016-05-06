@@ -110,18 +110,18 @@ app.factory('userService', ['$http', 'baseServiceUrl', 'authentication',
         }
 
         function isAnonymous() {
-            var anonymous = localStorage['user'] == undefined;
-            return anonymous;
+            return localStorage['user'] == undefined;
+
         }
 
         function isLoggedIn() {
-            var isLogged = localStorage['user'] != undefined;
-            return isLogged;
+            return localStorage['user'] != undefined;
+
         }
 
         function setLocalStorageIsNormal() {
-            var isNormal = isLoggedIn() && (!isAdminUser()) && (!isLeadProject());
-            return isNormal;
+            return isLoggedIn() && (!isAdminUser());
+
         }
 
         function isNormalUser() {
