@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdcf723e-737c-4e64-baca-b504580324d6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/HomeController.js" afterPath="$PROJECT_DIR$/js/controllers/HomeController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/LoginController.js" afterPath="$PROJECT_DIR$/js/controllers/LoginController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/RegisterController.js" afterPath="$PROJECT_DIR$/js/controllers/RegisterController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/admin/AddProjectController.js" afterPath="$PROJECT_DIR$/js/controllers/admin/AddProjectController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/admin/AdminController.js" afterPath="$PROJECT_DIR$/js/controllers/admin/AdminController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/admin/AdminPanelController.js" afterPath="$PROJECT_DIR$/js/controllers/admin/AdminPanelController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/admin/EditProjectController.js" afterPath="$PROJECT_DIR$/js/controllers/admin/EditProjectController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/admin/MakeAdminController.js" afterPath="$PROJECT_DIR$/js/controllers/admin/MakeAdminController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/leader/AddController.js" afterPath="$PROJECT_DIR$/js/controllers/leader/AddController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/leader/EditController.js" afterPath="$PROJECT_DIR$/js/controllers/leader/EditController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/leader/IssueController.js" afterPath="$PROJECT_DIR$/js/controllers/leader/IssueController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/user/DashboardController.js" afterPath="$PROJECT_DIR$/js/controllers/user/DashboardController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/user/ProfilePasswordController.js" afterPath="$PROJECT_DIR$/js/controllers/user/ProfilePasswordController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/user/ProjectsController.js" afterPath="$PROJECT_DIR$/js/controllers/user/ProjectsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services/data/issueService.js" afterPath="$PROJECT_DIR$/js/services/data/issueService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/list-projects.html" afterPath="$PROJECT_DIR$/templates/user/list-projects.html" />
     </list>
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AdminController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controllers/admin/AdminController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39891696">
-              <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+            <state vertical-scroll-proportion="-4.034483">
+              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -89,11 +73,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectsController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProjectsController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controllers/user/ProjectsController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.91099477">
+              <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list-projects.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/user/list-projects.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.807693">
+              <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -114,16 +108,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminPanelController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/controllers/admin/AdminPanelController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="85" selection-start-line="1" selection-start-column="85" selection-end-line="1" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -186,9 +170,9 @@
         <option value="$PROJECT_DIR$/js/controllers/user/ProfilePasswordController.js" />
         <option value="$PROJECT_DIR$/js/controllers/LoginController.js" />
         <option value="$PROJECT_DIR$/js/controllers/RegisterController.js" />
-        <option value="$PROJECT_DIR$/js/controllers/user/ProjectsController.js" />
         <option value="$PROJECT_DIR$/js/services/data/issueService.js" />
         <option value="$PROJECT_DIR$/js/controllers/admin/AdminController.js" />
+        <option value="$PROJECT_DIR$/js/controllers/user/ProjectsController.js" />
       </list>
     </option>
   </component>
@@ -546,12 +530,12 @@
     <option name="totallyTimeSpent" value="55801000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17857143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -779,14 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/user/list-projects.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.230769">
-          <caret line="13" column="75" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/admin/MakeAdminController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -899,14 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/user/ProjectsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/services/data/issueService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -915,10 +883,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user/list-projects.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/admin/AdminController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39891696">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+        <state vertical-scroll-proportion="-4.034483">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/user/ProjectsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.91099477">
+          <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
           <folding />
         </state>
       </provider>

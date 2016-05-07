@@ -45,15 +45,16 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
                 $scope.nameProject = name;
 
                 $scope.readyDownload = true;
-                if(result.length <= 0){
-                    issueService.getByFilterIssues(name).then(function(success){
-                        console.log(success);
+                if (result.length <= 0) {
+                    issueService.getAllIssues().then(function (success) {
+                        $scope.issues = success.data.Issues;
                     }, function (error) {
-                        console.log(error.data);
+                        notifyService.showError('', error.data);
                     });
 
+                } else {
+                    $scope.issues = result;
                 }
-                $scope.issues = result;
             }
         };
 
