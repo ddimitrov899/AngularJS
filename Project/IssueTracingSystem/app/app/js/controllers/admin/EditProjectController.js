@@ -12,8 +12,6 @@ app.controller('EditProjectController', ['$scope', '$location', '$route', 'userS
             projectService.getProjectById(id).then(function (success) {
                 params = success.data;
                 $route.reload();
-
-
             });
         };
 
@@ -23,7 +21,6 @@ app.controller('EditProjectController', ['$scope', '$location', '$route', 'userS
                 data = projectData;
 
             }
-            console.log(data);
             if (!data.Name) {
                 data.Name = oldProjectData.Name;
 
@@ -59,7 +56,6 @@ app.controller('EditProjectController', ['$scope', '$location', '$route', 'userS
                 }
             }
             if (!data.LeadId) {
-                console.log('Hello');
                 data.LeadId = oldProjectData.Lead.Id
             }
             projectService.editProject(data, oldProjectData.Id).then(function (success) {

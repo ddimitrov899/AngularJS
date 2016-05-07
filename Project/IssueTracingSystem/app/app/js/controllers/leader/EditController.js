@@ -11,37 +11,34 @@ app.controller('EditController',
 
 
             $scope.issueProjectEdit = function (editData, oldData) {
-                if(userService.isLead()) {
-                    var data = {};
-                    if (editData != undefined) {
-                        data = editData;
-                    }
-                    if (!data.Title) {
-                        data.Title = oldData.Title;
-                    }
-                    if (!data.Description) {
-                        data.Description = oldData.Description;
-                    }
-                    if (!data.AssigneeId) {
-                        data.AssigneeId = oldData.Assignee.Id;
-                    }
-                    if (!data.PriorityId) {
-                        data.PriorityId = oldData.Priority.Id;
-                    }
-                    if (!data.DueDate) {
-                        data.DueDate = oldData.DueDate;
-                    }
-
-                    issueService.editIssuesById(data, oldData.Id).then(function (success) {
-                        notifyService.showSuccess('You update Issue successfully')
-                    }, function (error) {
-                        notifyService.showError('The Issue', error.data)
-                    });
-                }else{
-                    notifyService.showError('You not a lead of project!')
+                var data = {};
+                if (editData != undefined) {
+                    data = editData;
                 }
+                if (!data.Title) {
+                    data.Title = oldData.Title;
+                }
+                if (!data.Description) {
+                    data.Description = oldData.Description;
+                }
+                if (!data.AssigneeId) {
+                    data.AssigneeId = oldData.Assignee.Id;
+                }
+                if (!data.PriorityId) {
+                    data.PriorityId = oldData.Priority.Id;
+                }
+                if (!data.DueDate) {
+                    data.DueDate = oldData.DueDate;
+                }
+
+                issueService.editIssuesById(data, oldData.Id).then(function (success) {
+                    notifyService.showSuccess('You update Issue successfully')
+                }, function (error) {
+                    notifyService.showError('The Issue', error.data)
+                });
+
             };
-            //TODO fixed button status and issueProjectEdit
+
             $scope.openButton = function (id, status) {
                 var authenticationAdmin = userService.isAdminUser();
                 var authenticationLead = userService.isLead();
@@ -51,8 +48,7 @@ app.controller('EditController',
                     notifyService.showError(errorMsg + "<br>" + infoMsg)
                 }
                 if (status.Name === 'Open') {
-                    
-                    console.log(status);
+                    //TODO fixed button status and issueProjectEdit
                 }
 
             };

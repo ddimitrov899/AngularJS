@@ -1,5 +1,7 @@
+"use strict";
+
 app.controller('ProjectsController', ['$scope', '$location', 'projectService', 'authentication', 'issueService', 'userService', 'notifyService',
-    function ($scope, $location, projectService, authentication,issueService, userService, notifyService) {
+    function ($scope, $location, projectService, authentication, issueService, userService, notifyService) {
         $scope.readyDownload = false;
         $scope.readyListProject = false;
         $scope.projects = [];
@@ -11,37 +13,46 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
             $location.path('/');
         }
 
-        userService.userInfo().then(function (success) {
-           projectService.getProjectByLeadId(success.data.Id).then(function (success) {
-               $scope.projects = success.data.Projects;
-               console.log(success);
-           })
-        });
+        if (userService.isAdminUser() && !userService.isLead()) {
+            projectService.getAllProject().then(function (data) {
+                var numberOfProject = data.data.length;
+                $scope.projects = data.data;
+
+                var id = 1;
+                while (id !== numberOfProject + 1) {
+                    issueService.getIssuesById(id).then(function (data) {
+                        result.push(data.data);
+                    });
+                    id++;
+                }
 
 
+            });
+        } else {
 
-        // projectService.getAllProject().then(function (data) {
-        //     numberOfProject = data.data.length;
-        //     console.log(data);
-        //     var id = 1;
-        //     while (id !== numberOfProject + 1) {
-        //         issueService.getIssuesById(id).then(function (data) {
-        //             projectData.push(data.data.Project);
-        //             result.push(data.data);
-        //
-        //
-        //         });
-        //         id++;
-        //     }
-        //
-        //     $scope.projects = projectData;
-        //
-        // });
+            userService.userInfo().then(function (success) {
+                projectService.getProjectByLeadId(success.data.Id).then(function (success) {
+                    $scope.projects = success.data.Projects;
+
+                })
+            });
+        }
+
+
         $scope.readyListProject = true;
         $scope.selectedName = function (name) {
             if (name != undefined) {
                 $scope.nameProject = name;
+
                 $scope.readyDownload = true;
+                if(result.length <= 0){
+                    issueService.getByFilterIssues(name).then(function(success){
+                        console.log(success);
+                    }, function (error) {
+                        console.log(error.data);
+                    });
+
+                }
                 $scope.issues = result;
             }
         };

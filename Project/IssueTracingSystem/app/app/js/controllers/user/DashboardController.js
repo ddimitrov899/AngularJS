@@ -1,8 +1,8 @@
 "use strict";
 
 app.controller('DashboardController',
-    ['$scope', '$timeout', 'userService', 'projectService', 'issueService',
-        function ($scope, $timeout, userService, projectService, issueService) {
+    ['$scope', '$timeout', 'issueService',
+        function ($scope, $timeout, issueService) {
             $scope.readyDownload = false;
             var result;
             issueService.getMyIssues().then(function (data) {

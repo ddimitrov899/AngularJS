@@ -8,7 +8,6 @@ app.controller('RegisterController', ['$scope', '$rootScope', '$location', 'user
             } else {
                 userService.register(user).then(function (success) {
                     userService.login(success.config.data).then(function (success) {
-                        console.log(success);
                         authentication.saveUserStorage(angular.toJson(success));
                         $location.path('/');
                         var registerMasage = 'You register success.';

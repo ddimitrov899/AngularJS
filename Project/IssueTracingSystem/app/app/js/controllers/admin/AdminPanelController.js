@@ -1,8 +1,8 @@
 "use strict";
-app.controller('AdminPanelController', ['$scope', '$timeout', '$location','issueService', 'authentication',
-    function ($scope, $timeout, $location,issueService, authentication) {
+app.controller('AdminPanelController', ['$location', 'authentication', 'notifyService',
+    function ($scope, authentication, notifyService) {
         var isLogged = authentication.getUser();
-        if(!isLogged){
+        if (!isLogged) {
             notifyService.showError('Please login first.');
             $location.path('/');
         }

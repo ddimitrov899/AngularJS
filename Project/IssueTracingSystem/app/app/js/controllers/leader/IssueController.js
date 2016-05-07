@@ -1,9 +1,8 @@
 "use strict";
-
 app.controller('IssueController', ['$scope', '$location', '$route', 'notifyService', 'authentication', 'issueService',
     function ($scope, $location, $route, notifyService, authentication, issueService) {
-         $scope.pageTitle = 'Issue Page';
-         $scope.readyIssueDownload = false;
+        $scope.pageTitle = 'Issue Page';
+        $scope.readyIssueDownload = false;
         $scope.promiseIssue = issueProject;
         $scope.allComments = comment;
         var isLogged = authentication.getUser();
@@ -20,7 +19,6 @@ app.controller('IssueController', ['$scope', '$location', '$route', 'notifyServi
                 $route.reload();
             });
             issueService.getIssueComments(id).then(function (comments) {
-                console.log(comments.data);
                 comment = comments.data;
                 $route.reload();
             });

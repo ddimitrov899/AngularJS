@@ -11,7 +11,7 @@
     <div ng-show="readyDownload">
         <div class="row">
             <div class="col-md-2">
-                <a ng-if="authService.isLead()" ng-click="addButton(selected.Id)" class="btn btn-info">Add issue</a>
+                <a ng-if="authService.isLead() || authService.isAdminUser()" ng-click="addButton(selected.Id)" class="btn btn-info">Add issue</a>
             </div>
             <div class="col-md-8">
                 <table class="table table-striped table-hover ">

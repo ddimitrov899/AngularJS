@@ -8,7 +8,6 @@ app.controller('LoginController', ['$scope', '$rootScope', '$location', 'userSer
                 userService.setLocalStorageIsNormal();
                 userService.userInfo();
                 notifyService.showSuccess('Success Login' + 'Welcome ' + success.data.userName +' !');
-                
                 $location.path('/')
             }, function (error) {
                 notifyService.showError('Login failed:', error.data)

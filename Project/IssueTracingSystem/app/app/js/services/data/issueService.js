@@ -6,17 +6,30 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
             var header = authentication.getUserHeaderStorage();
             var request = {
                 method: 'GET',
+                async: true,
                 url: baseServiceUrl + 'issues/' + projectId,
                 headers: header
             };
             return $http(request);
         }
 
-        function getAllIssuesById() {
+        function getAllIssues() {
             var header = authentication.getUserHeaderStorage();
             var request = {
                 method: 'GET',
-                url: baseServiceUrl + 'issues?filter=&orderBy=DueDate desc, IssueKey&pageSize=10&pageNumber=1',
+                async: true,
+                url: baseServiceUrl + 'issues?filter=&orderBy=DueDate desc, IssueKey&pageSize=2000&pageNumber=1',
+                headers: header
+            };
+            return $http(request);
+        }
+
+        function getByFilterIssuesById(projectName) {
+            var header = authentication.getUserHeaderStorage();
+            var request = {
+                method: 'GET',
+                async: true,
+                url: baseServiceUrl + 'issues?filter=Projects.Name.contains("' + projectName + '")',
                 headers: header
             };
             return $http(request);
@@ -26,6 +39,7 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
             var header = authentication.getUserHeaderStorage();
             var request = {
                 method: 'GET',
+                async: true,
                 url: baseServiceUrl + 'issues/me?orderBy=DueDate desc, IssueKey&pageSize=20&pageNumber=1',
                 headers: header
             };
@@ -87,7 +101,8 @@ app.factory('issueService', ['$http', 'baseServiceUrl', 'authentication',
 
         return {
             getIssuesById: getIssuesById,
-            getAllIssuesById: getAllIssuesById,
+            getAllIssues: getAllIssues,
+            getByFilterIssues: getByFilterIssuesById,
             getMyIssues: getMyIssues,
             editIssuesById: editIssuesById,
             changeStatus: changeStatus,

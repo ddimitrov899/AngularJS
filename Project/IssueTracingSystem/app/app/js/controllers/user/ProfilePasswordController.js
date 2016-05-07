@@ -1,7 +1,7 @@
 "use strict";
 
-app.controller('ProfilePasswordController', ['$scope', '$rootScope', '$location', 'userService', 'authentication', 'notifyService',
-    function ($scope, $rootScope, $location, userService, authentication, notifyService) {
+app.controller('ProfilePasswordController', ['$scope', '$location', 'userService', 'authentication', 'notifyService',
+    function ($scope, $location, userService, authentication, notifyService) {
         var isLogged = authentication.getUser();
         if(!isLogged){
             notifyService.showError('Please login first.');
@@ -19,7 +19,6 @@ app.controller('ProfilePasswordController', ['$scope', '$rootScope', '$location'
                     });
 
                 }, function(error){
-                    console.log(error);
                     notifyService.showError('The old password in not mach!', error.data);
                 })
             }

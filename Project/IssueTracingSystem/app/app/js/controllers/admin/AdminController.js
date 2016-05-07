@@ -1,8 +1,8 @@
 "use strict";
-app.controller('AdminController', ['$scope', '$timeout', '$location','issueService', 'authentication', 'notifyService',
-    function ($scope, $timeout, $location,issueService, authentication, notifyService) {
+app.controller('AdminController', ['$scope', '$timeout', '$location', 'issueService', 'authentication', 'notifyService',
+    function ($scope, $timeout, $location, issueService, authentication, notifyService) {
         var isLogged = authentication.getUser();
-        if(!isLogged){
+        if (!isLogged) {
             notifyService.showError('Please login first.');
             $location.path('/');
         }
@@ -10,26 +10,15 @@ app.controller('AdminController', ['$scope', '$timeout', '$location','issueServi
         $scope.authService = issueService;
         $scope.readyDownload = false;
         var totalCount;
-        var result = [];
-        issueService.getAllIssuesById().then(function (data) {
-
-            var id = 1;
+        issueService.getAllIssues().then(function (data) {
             totalCount = data.data.TotalCount;
-            while (id !== totalCount + 1){
+            $scope.issues = data.data.Issues;
 
-                issueService.getIssuesById(id).then(function (success) {
-                    result.push(success.data);
+    });
 
-                }, function (error) {
-                    notifyService.showError('', error.data);
-                });
-                id++;
-            }
-        });
-
-        $timeout(function () {
-            $scope.issues = result;
-            $scope.pageTitle = 'Dashboard';
-            $scope.readyDownload = true;
-        }, 19000)
-    }]);
+$timeout(function () {
+    $scope.pageTitle = 'Dashboard';
+    $scope.readyDownload = true;
+}, 10000)
+}])
+;

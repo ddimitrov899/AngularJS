@@ -1,6 +1,6 @@
 "use strict";
-app.controller('AddProjectController', ['$scope', '$location', 'userService', 'projectService', 'authentication', 'notifyService',
-    function ($scope, $location, userService, projectService, authentication, notifyService) {
+app.controller('AddProjectController', ['$scope', '$location', 'projectService', 'authentication', 'notifyService',
+    function ($scope, $location, projectService, authentication, notifyService) {
         var isLogged = authentication.getUser();
         if (!isLogged) {
             notifyService.showError('Please login first.');
@@ -31,7 +31,8 @@ app.controller('AddProjectController', ['$scope', '$location', 'userService', 'p
 
             }
             projectService.addProject(data).then(function (success) {
-                notifyService.showSuccess(success.statusText + 'created: ' + success.Name + 'project!')
+                notifyService.showSuccess(success.statusText + 'created: ' + success.Name + 'project!');
+                $location.path('/');
             }, function (error) {
                 notifyService.showError('', error.data);
             })

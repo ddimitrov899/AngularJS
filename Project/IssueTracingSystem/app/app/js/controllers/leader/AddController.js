@@ -1,8 +1,8 @@
 "use strict";
 
 app.controller('AddController',
-    ['$scope', '$location', '$route', 'authentication', 'notifyService', 'userService', 'issueService', 'projectService',
-        function ($scope, $location, $route, authentication, notifyService, userService, issueService, projectService) {
+    ['$scope', '$location', 'authentication', 'notifyService', 'userService', 'issueService', 'projectService',
+        function ($scope, $location, authentication, notifyService, userService, issueService, projectService) {
             var isLogged = authentication.getUser();
             if (!isLogged) {
                 notifyService.showError('Please login first.');
@@ -18,13 +18,12 @@ app.controller('AddController',
                     PriorityId: parseInt(issue.PriorityId),
                     Labels: []
                 };
-                console.log(issue);
-                issueService.addIssue(data).then(function(success){
+                issueService.addIssue(data).then(function (success) {
 
                     notifyService.showSuccess('You add successfully issue:' + success.data.Title);
                     $location.path('/projects')
                 }, function (error) {
-                    console.log(error.data.Message);
+                    notifyService.showError('', error.data);
                 });
             };
 

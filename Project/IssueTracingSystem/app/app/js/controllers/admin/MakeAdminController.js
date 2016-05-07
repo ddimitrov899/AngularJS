@@ -14,7 +14,6 @@ app.controller('MakeAdminController', ['$scope', '$timeout', '$location', 'userS
             userService.makeAdmin(id).then(function () {
                 notifyService.showSuccess('This user now is admin');
             }, function (error) {
-                console.log(error.data);
                 notifyService.showError('', error.data);
             })
         }
