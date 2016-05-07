@@ -7,7 +7,6 @@ app.controller('DashboardController',
             var result;
             issueService.getMyIssues().then(function (data) {
                 result = data.data.Issues;
-                console.log(result);
             });
 
             $timeout(function () {

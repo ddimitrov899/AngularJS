@@ -14,9 +14,9 @@
             <div class="form-group">
                 <label><span>Leader (current Username: {{paramsEdit.Lead.Username}})</span></label>
                 <div class="col-sm-12 ">
-                    <select class="form-control" ng-controller="AddController"
+                    <select class="form-control"
                             ng-options="lead.Id as lead.Username for lead in usersName"
-                            ng-model="projectDataEdit.leaderId"></select>
+                            ng-model="projectDataEdit.LeadId"></select>
                 </div>
             </div>
             <div class="form-group">

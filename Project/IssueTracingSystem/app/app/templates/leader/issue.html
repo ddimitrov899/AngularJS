@@ -68,11 +68,7 @@
     </div>
 
     <div class="col-lg-2">
-        <a ng-click="openButton(promiseIssue.Id, promiseIssue.Status.Id)" class="btn btn-success margin-button">Open</a>
-        <a ng-click="closeButton(promiseIssue.Id, promiseIssue.Status.Name)"
-           class="btn btn-success margin-button">Close</a>
-        <a ng-click="inProgresButton(promiseIssue.Id, promiseIssue.Status.Name)" class="btn btn-success">In Progress</a>
-        <a ng-click="resolvedButton(promiseIssue.Id, promiseIssue.Status.Name)" class="btn btn-success">Resolved</a>
+        <a ng-controller="EditController" ng-click="openButton(promiseIssue.Id, promiseIssue.Status)" class="btn btn-success margin-button">Change Status</a>
     </div>
 </div>
 <div class="panel panel-success">

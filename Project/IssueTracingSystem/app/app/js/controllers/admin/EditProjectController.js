@@ -9,10 +9,11 @@ app.controller('EditProjectController', ['$scope', '$location', '$route', 'userS
         $scope.paramsEdit = params;
         $scope.projectId = function (id) {
             $location.path('/projects/' + id + '/edit');
-            projectService.getProjectById(529).then(function (success) {
+            projectService.getProjectById(id).then(function (success) {
                 params = success.data;
-                console.log(params);
                 $route.reload();
+
+
             });
         };
 
@@ -22,6 +23,7 @@ app.controller('EditProjectController', ['$scope', '$location', '$route', 'userS
                 data = projectData;
 
             }
+            console.log(data);
             if (!data.Name) {
                 data.Name = oldProjectData.Name;
 
@@ -31,7 +33,7 @@ app.controller('EditProjectController', ['$scope', '$location', '$route', 'userS
             }
             if (!data.labels) {
                 data.labels = [];
-                var label =oldProjectData.Labels;
+                var label = oldProjectData.Labels;
                 for (var i = 0; i < label.length; i++) {
                     data.labels.push({Name: label[i].Name});
                 }
@@ -57,6 +59,7 @@ app.controller('EditProjectController', ['$scope', '$location', '$route', 'userS
                 }
             }
             if (!data.LeadId) {
+                console.log('Hello');
                 data.LeadId = oldProjectData.Lead.Id
             }
             projectService.editProject(data, oldProjectData.Id).then(function (success) {
@@ -65,8 +68,14 @@ app.controller('EditProjectController', ['$scope', '$location', '$route', 'userS
             }, function (error) {
                 notifyService.showError('', error.data);
             })
-        }
+        };
 
+        userService.getAllUsersByFilter().then(function (users) {
+            $scope.usersName = users.data;
+
+        }, function (error) {
+            notifyService.showError('', error.data)
+        });
 
     }]);
 var params;

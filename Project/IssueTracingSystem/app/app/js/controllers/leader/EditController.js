@@ -43,40 +43,18 @@ app.controller('EditController',
             };
             //TODO fixed button status and issueProjectEdit
             $scope.openButton = function (id, status) {
-                if (status == 'In Progress') {
-                    //TODO: put status Id
-                } else {
-                    var authenticationAdmin = userService.isAdminUser();
-                    var authenticationLead = userService.isLead();
-                    if (authenticationAdmin && authenticationLead) {
-                        var errorMsg = 'This status cannot be change!';
-                        var infoMsg = 'Please if you wont open issue please click reopen button!';
-                        notifyService.showError(errorMsg + "<br>" + infoMsg)
-                    } else {
-                        var errorMsg = 'This status cannot be change!';
-                        var infoMsg = 'Please connect your teem leader!';
-                        notifyService.showError(errorMsg + "<br >" + infoMsg)
-                    }
+                var authenticationAdmin = userService.isAdminUser();
+                var authenticationLead = userService.isLead();
+                if (authenticationAdmin && authenticationLead) {
+                    var errorMsg = 'This status cannot be change!';
+                    var infoMsg = 'Please if you wont open issue please click reopen button!';
+                    notifyService.showError(errorMsg + "<br>" + infoMsg)
                 }
-            };
-
-            $scope.inProgressButton = function (id, status) {
-                if (status == 'In Progress') {
-                    //TODO: put status Id
-                } else {
-                    var authenticationAdmin = userService.isAdminUser();
-                    var authenticationLead = userService.isLead();
-                    if (authenticationAdmin && authenticationLead) {
-                        var errorMsg = 'This status cannot be change!';
-                        var infoMsg = 'This option accept only Resolved and Closed';
-                        notifyService.showError(errorMsg + "<br>" + infoMsg)
-                    } else {
-                        var errorMsg = 'This status cannot be change!';
-                        var infoMsg = 'Please connect your teem leader!';
-                        notifyService.showError(errorMsg + "<br>" + infoMsg)
-                    }
+                if (status.Name === 'Open') {
+                    
+                    console.log(status);
                 }
-            };
 
+            };
         }
     ]);
