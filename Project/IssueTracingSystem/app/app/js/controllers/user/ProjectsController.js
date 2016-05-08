@@ -16,9 +16,6 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
         if (userService.isAdminUser() && !userService.isLead()) {
             projectService.getAllProject().then(function (data) {
                 $scope.projects = data.data;
-
-
-
             });
         } else {
 
@@ -44,8 +41,6 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
                         notifyService.showError('', error.data);
                     });
 
-                } else {
-                    $scope.issues = result;
                 }
             }
         };

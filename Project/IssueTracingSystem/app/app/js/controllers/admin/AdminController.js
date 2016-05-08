@@ -9,9 +9,7 @@ app.controller('AdminController', ['$scope', '$timeout', '$location', 'issueServ
 
         $scope.authService = issueService;
         $scope.readyDownload = false;
-        var totalCount;
         issueService.getAllIssues().then(function (data) {
-            totalCount = data.data.TotalCount;
             $scope.issues = data.data.Issues;
 
     });
