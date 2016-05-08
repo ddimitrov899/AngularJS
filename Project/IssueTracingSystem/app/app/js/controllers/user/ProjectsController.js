@@ -15,16 +15,8 @@ app.controller('ProjectsController', ['$scope', '$location', 'projectService', '
 
         if (userService.isAdminUser() && !userService.isLead()) {
             projectService.getAllProject().then(function (data) {
-                var numberOfProject = data.data.length;
                 $scope.projects = data.data;
 
-                var id = 1;
-                while (id !== numberOfProject + 1) {
-                    issueService.getIssuesById(id).then(function (data) {
-                        result.push(data.data);
-                    });
-                    id++;
-                }
 
 
             });
