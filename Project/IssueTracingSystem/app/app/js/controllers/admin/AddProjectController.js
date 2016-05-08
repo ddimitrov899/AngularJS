@@ -1,6 +1,6 @@
 "use strict";
-app.controller('AddProjectController', ['$scope', '$location', 'projectService', 'authentication', 'notifyService',
-    function ($scope, $location, projectService, authentication, notifyService) {
+app.controller('AddProjectController', ['$scope', '$location', 'projectService', 'userService', 'authentication', 'notifyService',
+    function ($scope, $location, projectService, userService,authentication, notifyService) {
         var isLogged = authentication.getUser();
         if (!isLogged) {
             notifyService.showError('Please login first.');

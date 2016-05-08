@@ -20,7 +20,7 @@ app.factory('notifyService',
                      errors.push(modelStateErrors);
                  }
                  if (errors.length > 0) {
-                     msg = msg + "<br>" + errors.join("<br>");
+                     msg = errors.join("<br>");
                  }
                  noty({
                      text: msg,
